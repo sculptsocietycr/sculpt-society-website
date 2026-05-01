@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { bedazzlingBar } from '../data/content';
+import { bedazzlingBar, images } from '../data/content';
 
 export default function BedazzlingBar() {
   return (
@@ -13,25 +13,15 @@ export default function BedazzlingBar() {
             transition={{ duration: 0.6 }}
             className="relative lg:col-span-5"
           >
-            <div className="aspect-[4/5] overflow-hidden rounded-[2rem] bg-cream">
-              <div className="flex h-full w-full flex-col items-center justify-center p-10 text-center">
-                <div className="mb-6 grid grid-cols-3 gap-3">
-                  {Array.from({ length: 9 }).map((_, i) => (
-                    <span
-                      key={i}
-                      className="text-2xl text-gold"
-                      style={{ animationDelay: `${i * 0.1}s` }}
-                    >
-                      ✦
-                    </span>
-                  ))}
-                </div>
-                <p className="text-xs font-medium uppercase tracking-[0.25em] text-charcoal/60">
-                  Sparkle moment
-                </p>
-              </div>
+            <div className="relative aspect-square overflow-hidden rounded-[2rem] shadow-xl">
+              <img
+                src={images.bedazzlingBar}
+                alt="Cepillos personalizados con cristales — Bedazzling Bar"
+                className="h-full w-full object-cover"
+              />
+              <span className="absolute right-5 top-5 text-3xl text-cream drop-shadow-lg">✦</span>
+              <span className="absolute bottom-5 left-5 text-xs font-medium uppercase tracking-[0.25em] text-cream drop-shadow">Sparkle moment</span>
             </div>
-            <span className="absolute -bottom-3 -right-3 hidden h-20 w-20 rounded-full bg-gold/80 lg:block" />
           </motion.div>
 
           <motion.div

@@ -11,12 +11,12 @@ export default function Hero() {
       <div className="pointer-events-none absolute -bottom-32 -left-20 h-96 w-96 rounded-full bg-gold/20 blur-3xl" />
 
       <div className="container-site relative px-6 py-16 md:px-10 md:py-24 lg:py-32">
-        <div className="grid items-center gap-14 lg:grid-cols-12">
+        <div className="grid items-center gap-10 md:grid-cols-12 md:gap-14">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
-            className="lg:col-span-6"
+            className="md:col-span-6"
           >
             <p className="eyebrow mb-5">{hero.eyebrow}</p>
             <h1 className="display text-5xl text-charcoal md:text-6xl lg:text-7xl">
@@ -41,9 +41,9 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="lg:col-span-6"
+            className="md:col-span-6"
           >
-            <div className="relative mx-auto aspect-[4/5] max-w-md lg:max-w-none">
+            <div className="relative mx-auto aspect-[4/5] max-w-md md:max-w-none">
               {/* fondo principal */}
               <div className="absolute inset-0 rounded-[2rem] bg-wine"></div>
 
@@ -56,15 +56,10 @@ export default function Hero() {
                 <path d="M10 240 Q10 10 100 10 Q190 10 190 240" stroke="currentColor" strokeWidth="1.5" fill="none" />
               </svg>
 
-              {/* círculos decorativos */}
-              <div className="absolute -left-3 -top-3 h-16 w-16 rounded-full bg-pink"></div>
-              <div className="absolute -bottom-4 -right-4 h-24 w-24 rounded-full bg-gold/80"></div>
-              <div className="absolute right-8 top-12 h-3 w-3 rounded-full bg-gold"></div>
-
-              {/* sparkles */}
-              <span className="absolute left-10 top-20 text-2xl text-gold">✦</span>
-              <span className="absolute bottom-32 right-12 text-xl text-gold/70">✦</span>
-              <span className="absolute left-1/3 top-1/2 text-base text-gold/50">✦</span>
+              {/* sparkles sutiles */}
+              <span className="absolute left-10 top-16 text-2xl text-gold/80">✦</span>
+              <span className="absolute bottom-24 right-12 text-xl text-gold/60">✦</span>
+              <span className="absolute left-1/3 top-1/2 text-base text-gold/40">✦</span>
 
               {/* manifesto text */}
               <div className="absolute inset-0 flex flex-col items-center justify-center px-10 text-center">

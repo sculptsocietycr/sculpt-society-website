@@ -40,7 +40,11 @@
       "Bash(git add *)",
       "Bash(git commit *)",
       "Bash(curl -s http://localhost:5173/)",
-      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173/src/data/content.js)"
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173/src/data/content.js)",
+      "Bash(sips -g pixelWidth -g pixelHeight -g format src/assets/images/about.jpg)",
+      "Bash(mv bedazzling-bar.jpg.jpg bedazzling-bar-orig.jpg)",
+      "Bash(sips -Z 1600 -s formatOptions 85 bedazzling-bar-orig.jpg --out bedazzling-bar.jpg)",
+      "Bash(sips -g pixelWidth -g pixelHeight bedazzling-bar.jpg)"
     ]
   }
 }

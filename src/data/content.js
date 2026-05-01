@@ -10,6 +10,8 @@ import logoVector from '../assets/logos/logo-vector.png';
 
 // Única foto personal usada en el sitio (sección Sobre nosotras, espejada)
 import aboutImg from '../assets/images/about.jpg';
+// Imagen del Bedazzling Bar (cepillos personalizados con cristales)
+import bedazzlingBarImg from '../assets/images/bedazzling-bar.jpg';
 
 // -------------------------------
 // MARCA
@@ -34,6 +36,7 @@ export const logos = {
 
 export const images = {
   about: aboutImg, // se renderiza espejada vía CSS
+  bedazzlingBar: bedazzlingBarImg,
 };
 
 export const colors = {
