@@ -1,6 +1,17 @@
 import { motion } from 'framer-motion';
 import { futureEvents, brand } from '../data/content';
 
+const TONE_BG = {
+  pink: 'bg-pink/60',
+  gold: 'bg-gold/40',
+  wine: 'bg-wine',
+};
+const TONE_TEXT = {
+  pink: 'text-wine',
+  gold: 'text-wine',
+  wine: 'text-cream',
+};
+
 export default function Events() {
   return (
     <section id="eventos" className="bg-cream section-pad">
@@ -35,13 +46,15 @@ export default function Events() {
               transition={{ duration: 0.4, delay: i * 0.05 }}
               className="group overflow-hidden rounded-2xl border border-charcoal/10 bg-cream transition-all duration-300 hover:-translate-y-1 hover:border-wine/30 hover:shadow-lg"
             >
-              <div className="aspect-video overflow-hidden bg-pink/30">
-                <img
-                  src={e.image}
-                  alt={e.title}
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  loading="lazy"
-                />
+              {/* Top gráfico — color block + símbolo */}
+              <div className={`relative flex aspect-video items-center justify-center ${TONE_BG[e.tone]}`}>
+                <span className={`text-7xl ${TONE_TEXT[e.tone]} transition-transform duration-500 group-hover:scale-110`}>
+                  {e.symbol}
+                </span>
+                <span className={`absolute right-4 top-4 text-base ${e.tone === 'wine' ? 'text-gold' : 'text-gold'}`}>✦</span>
+                <span className={`absolute bottom-4 left-4 text-[10px] font-medium uppercase tracking-[0.25em] ${e.tone === 'wine' ? 'text-cream/60' : 'text-wine/50'}`}>
+                  Sculpt Society
+                </span>
               </div>
               <div className="p-7">
                 <h3 className="text-xl font-semibold text-charcoal">{e.title}</h3>

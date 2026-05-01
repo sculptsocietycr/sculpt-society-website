@@ -38,7 +38,9 @@
       "Bash(rm -f exports/_invite-square.html.png exports/_invite-story.html.png)",
       "Bash(node _render-invites.mjs)",
       "Bash(git add *)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Bash(curl -s http://localhost:5173/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173/src/data/content.js)"
     ]
   }
 }

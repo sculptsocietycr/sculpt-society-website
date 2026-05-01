@@ -8,24 +8,8 @@
 import logoPrimary from '../assets/logos/logo-primary.jpeg';
 import logoVector from '../assets/logos/logo-vector.png';
 
-// Fotos reales (sesión Paloma Studios)
-import heroImg from '../assets/images/hero.jpg';
+// Única foto personal usada en el sitio (sección Sobre nosotras, espejada)
 import aboutImg from '../assets/images/about.jpg';
-import communityImg from '../assets/images/community.jpg';
-import gallery01 from '../assets/images/gallery-01.jpg';
-import gallery02 from '../assets/images/gallery-02.jpg';
-import gallery03 from '../assets/images/gallery-03.jpg';
-import gallery04 from '../assets/images/gallery-04.jpg';
-import gallery05 from '../assets/images/gallery-05.jpg';
-import gallery06 from '../assets/images/gallery-06.jpg';
-
-// Stock photos (Unsplash) para sección de eventos futuros
-import stockYoga from '../assets/images/stock/yoga.jpg';
-import stockBrunch from '../assets/images/stock/brunch.jpg';
-import stockSparkle from '../assets/images/stock/sparkle.jpg';
-import stockEvent from '../assets/images/stock/event.jpg';
-import stockWellness from '../assets/images/stock/wellness.jpg';
-import stockThemed from '../assets/images/stock/themed.jpg';
 
 // -------------------------------
 // MARCA
@@ -38,28 +22,20 @@ export const brand = {
   domain: 'sculptsocietycr.com',
   email: 'sculptsocietycr@gmail.com',
   whatsapp: '+506 6257 5319',
-  whatsappRaw: '50662575319', // sin + ni espacios, para wa.me
+  whatsappRaw: '50662575319',
   sinpeNumber: '+506 6257 5319',
   sinpeOwner: 'Elvira Fernández',
 };
 
-// -------------------------------
-// LOGOS + IMÁGENES PRINCIPALES
-// -------------------------------
 export const logos = {
   primary: logoPrimary,
   vector: logoVector,
 };
 
 export const images = {
-  hero: heroImg,
-  about: aboutImg,
-  community: communityImg,
+  about: aboutImg, // se renderiza espejada vía CSS
 };
 
-// -------------------------------
-// COLORES OFICIALES (referencia)
-// -------------------------------
 export const colors = {
   orange: '#E7552C',
   wine: '#811D16',
@@ -94,10 +70,12 @@ export const hero = {
     'Sculpt Society es una comunidad wellness para mujeres que quieren cuidarse, hacer amigas nuevas y vivir experiencias que se sienten tan bien como se ven.',
   ctaPrimary: { label: 'Inscribirme al próximo evento', href: '#proximo-evento' },
   ctaSecondary: { label: 'Conocer Sculpt Society', href: '#sobre' },
+  // Palabras editoriales para la composición tipográfica del hero
+  manifestoWords: ['Wellness', 'Movimiento', 'Amistad', 'Brillar'],
 };
 
 // -------------------------------
-// SOBRE SCULPT SOCIETY
+// SOBRE SCULPT SOCIETY (única sección con foto)
 // -------------------------------
 export const about = {
   eyebrow: 'Sobre nosotras',
@@ -110,8 +88,6 @@ export const about = {
 
 // -------------------------------
 // FUNDADORAS
-// EDITA AQUÍ — cuando tengan fotos individuales, reemplazar `image: null`
-// por `image: importedPhoto` (ver instrucciones en EDITING_GUIDE.md).
 // -------------------------------
 export const founders = {
   eyebrow: 'Las fundadoras',
@@ -126,7 +102,7 @@ export const founders = {
 };
 
 // -------------------------------
-// PILARES / LO QUE CREEMOS
+// PILARES
 // -------------------------------
 export const beliefs = {
   eyebrow: 'Lo que creemos',
@@ -159,8 +135,7 @@ export const community = {
 };
 
 // -------------------------------
-// PRÓXIMO EVENTO — Hannah Montana Edition
-// EDITA AQUÍ para futuras ediciones
+// PRÓXIMO EVENTO
 // -------------------------------
 export const nextEvent = {
   eyebrow: 'Próximo evento',
@@ -183,9 +158,6 @@ export const nextEvent = {
   ],
 };
 
-// -------------------------------
-// AGENDA TENTATIVA
-// -------------------------------
 export const agenda = {
   eyebrow: 'Agenda tentativa',
   title: 'Cómo se vive la mañana.',
@@ -199,9 +171,6 @@ export const agenda = {
   ],
 };
 
-// -------------------------------
-// BEDAZZLING BAR
-// -------------------------------
 export const bedazzlingBar = {
   eyebrow: 'Bedazzling Bar',
   title: 'Tu sparkle moment.',
@@ -210,8 +179,7 @@ export const bedazzlingBar = {
 };
 
 // -------------------------------
-// EVENTOS FUTUROS
-// Las imágenes son stock (Unsplash). Reemplazar por fotos reales cuando estén disponibles.
+// EVENTOS FUTUROS — sin fotos, treatment gráfico (símbolo + color)
 // -------------------------------
 export const futureEvents = {
   eyebrow: 'Eventos Sculpt Society',
@@ -219,18 +187,17 @@ export const futureEvents = {
   description:
     'Sculpt Society es una comunidad continua. Estamos curando experiencias para todo el año.',
   list: [
-    { title: 'Yoga Sculpt', description: 'Clases temáticas para moverte feliz.', image: stockYoga },
-    { title: 'Brunch experiences', description: 'Mesas largas para compartir entre amigas.', image: stockBrunch },
-    { title: 'Bedazzling Bar', description: 'Activaciones creativas y fotogénicas.', image: stockSparkle },
-    { title: 'Activaciones con marcas', description: 'Colaboraciones con marcas wellness.', image: stockEvent },
-    { title: 'Wellness mornings', description: 'Mañanas de movimiento, comida y calma.', image: stockWellness },
-    { title: 'Experiencias temáticas', description: 'Ediciones especiales con vibra única.', image: stockThemed },
+    { title: 'Yoga Sculpt', description: 'Clases temáticas para moverte feliz.', symbol: '◇', tone: 'pink' },
+    { title: 'Brunch experiences', description: 'Mesas largas para compartir entre amigas.', symbol: '✿', tone: 'gold' },
+    { title: 'Bedazzling Bar', description: 'Activaciones creativas y fotogénicas.', symbol: '✦', tone: 'wine' },
+    { title: 'Activaciones con marcas', description: 'Colaboraciones con marcas wellness.', symbol: '◯', tone: 'pink' },
+    { title: 'Wellness mornings', description: 'Mañanas de movimiento, comida y calma.', symbol: '☼', tone: 'gold' },
+    { title: 'Experiencias temáticas', description: 'Ediciones especiales con vibra única.', symbol: '❋', tone: 'wine' },
   ],
 };
 
 // -------------------------------
 // FORMULARIO DE INSCRIPCIÓN
-// EDITA AQUÍ — reemplazar FORM_ID_AQUI con tu ID real de Formspree.
 // -------------------------------
 export const form = {
   eyebrow: 'Reservá tu lugar',
@@ -275,19 +242,19 @@ export const faq = {
 };
 
 // -------------------------------
-// GALERÍA / MOODBOARD
+// MOODBOARD — 6 vibe tiles tipográficas (sin fotos)
 // -------------------------------
 export const gallery = {
   eyebrow: 'Moodboard',
   title: 'La vibra Sculpt Society.',
-  note: 'Sesión Paloma Studios. Más fotos del primer evento próximamente.',
+  note: 'Las palabras que nos mueven.',
   items: [
-    { id: 1, image: gallery01, alt: 'Cobra pose en Paloma Studios' },
-    { id: 2, image: gallery02, alt: 'Downward facing dog' },
-    { id: 3, image: gallery03, alt: 'Warrior pose' },
-    { id: 4, image: gallery04, alt: 'Lunge con brazos arriba' },
-    { id: 5, image: gallery05, alt: 'Movimiento con dumbbells' },
-    { id: 6, image: gallery06, alt: 'Trabajo en mat' },
+    { word: 'glow',        tone: 'pink',  symbol: '✦' },
+    { word: 'movimiento',  tone: 'wine',  symbol: '☼' },
+    { word: 'amistad',     tone: 'gold',  symbol: '✿' },
+    { word: 'ritual',      tone: 'cream', symbol: '◇' },
+    { word: 'sparkle',     tone: 'pink',  symbol: '✦' },
+    { word: 'comunidad',   tone: 'wine',  symbol: '◯' },
   ],
 };
 

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { hero, images } from '../data/content';
+import { hero } from '../data/content';
 
 export default function Hero() {
   return (
@@ -36,6 +36,7 @@ export default function Hero() {
             </div>
           </motion.div>
 
+          {/* Composición editorial — typography + shapes, sin foto */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -43,14 +44,50 @@ export default function Hero() {
             className="lg:col-span-6"
           >
             <div className="relative mx-auto aspect-[4/5] max-w-md lg:max-w-none">
+              {/* fondo principal */}
               <div className="absolute inset-0 rounded-[2rem] bg-wine"></div>
-              <img
-                src={images.hero}
-                alt="Sculpt Society — clase de Yoga Sculpt"
-                className="relative h-full w-full rounded-[2rem] object-cover shadow-xl"
-              />
-              <div className="absolute -bottom-4 -right-4 hidden h-24 w-24 rounded-full bg-gold/80 md:block" />
-              <div className="absolute -left-3 -top-3 hidden h-16 w-16 rounded-full bg-pink md:block" />
+
+              {/* arch SVG decorativo */}
+              <svg
+                className="absolute left-1/2 top-10 -translate-x-1/2 text-pink/30"
+                width="80%" height="60%" viewBox="0 0 200 240" fill="none" preserveAspectRatio="xMidYMin meet"
+                aria-hidden="true"
+              >
+                <path d="M10 240 Q10 10 100 10 Q190 10 190 240" stroke="currentColor" strokeWidth="1.5" fill="none" />
+              </svg>
+
+              {/* círculos decorativos */}
+              <div className="absolute -left-3 -top-3 h-16 w-16 rounded-full bg-pink"></div>
+              <div className="absolute -bottom-4 -right-4 h-24 w-24 rounded-full bg-gold/80"></div>
+              <div className="absolute right-8 top-12 h-3 w-3 rounded-full bg-gold"></div>
+
+              {/* sparkles */}
+              <span className="absolute left-10 top-20 text-2xl text-gold">✦</span>
+              <span className="absolute bottom-32 right-12 text-xl text-gold/70">✦</span>
+              <span className="absolute left-1/3 top-1/2 text-base text-gold/50">✦</span>
+
+              {/* manifesto text */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center px-10 text-center">
+                <p className="text-xs font-medium uppercase tracking-[0.35em] text-gold">
+                  Una mañana ✦
+                </p>
+                <div className="mt-6 space-y-2">
+                  {hero.manifestoWords.map((word, i) => (
+                    <div
+                      key={word}
+                      className={`display text-5xl md:text-6xl ${
+                        i % 2 === 1 ? 'italic text-pink' : 'text-cream'
+                      }`}
+                    >
+                      {word}
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-8 h-px w-12 bg-gold/60" />
+                <p className="mt-6 text-xs italic tracking-wide text-cream/70">
+                  Movernos · conectar · brillar
+                </p>
+              </div>
             </div>
           </motion.div>
         </div>

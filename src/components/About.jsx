@@ -14,7 +14,19 @@ export default function About() {
             className="lg:col-span-5"
           >
             <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem]">
-              <img src={images.about} alt="Comunidad wellness Sculpt Society" className="h-full w-full object-cover" />
+              {/* foto espejada vía CSS scaleX(-1) */}
+              <img
+                src={images.about}
+                alt="Sculpt Society — wellness y comunidad"
+                className="h-full w-full object-cover"
+                style={{ transform: 'scaleX(-1)' }}
+              />
+              {/* sparkle decorativo */}
+              <span className="absolute right-6 top-6 text-3xl text-gold">✦</span>
+            </div>
+            {/* círculo dorado decorativo */}
+            <div className="relative">
+              <div className="absolute -top-6 right-6 h-16 w-16 rounded-full bg-gold/70" />
             </div>
           </motion.div>
 
