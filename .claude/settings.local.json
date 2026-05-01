@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(command -v nvm)",
+      "Bash(command -v brew)",
+      "Read(//opt/homebrew/bin/**)",
+      "Bash(sips -Z 1800 -s formatOptions 85 __TRACKED_VAR__/IMG_1247.jpg --out __TRACKED_VAR__/hero.jpg)",
+      "Bash(mv brunch.jpg brunch-old.jpg)",
+      "Bash(mv wellness.jpg brunch.jpg)",
+      "Bash(curl -sL \"https://images.unsplash.com/photo-1545205597-3d9d02c29597?w=900&q=80\" -o yoga-2.jpg)",
+      "Bash(curl -sL \"https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=900&q=80\" -o event-styled.jpg)",
+      "Bash(curl -sL \"https://images.unsplash.com/photo-1490312278390-ab64016e0aa9?w=900&q=80\" -o wellness-new.jpg)",
+      "Bash(rm themed.jpg yoga-2.jpg)",
+      "Bash(curl -sL \"https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80\" -o themed.jpg)",
+      "Bash(sips -g pixelWidth -g pixelHeight \"src/assets/logos/logo-primary.jpeg\" \"src/assets/logos/logo-vector.png\")",
+      "Bash(sips -c 1200 1200 src/assets/logos/logo-vector.png --out src/assets/logos/logo-instagram-test.png)",
+      "Bash(sips -Z 1080 src/assets/logos/logo-instagram-test.png --out src/assets/logos/logo-instagram.png)",
+      "Bash(rm src/assets/logos/logo-instagram.png)",
+      "Bash(sips -c 1200 1200 src/assets/logos/logo-primary.jpeg --out src/assets/logos/logo-instagram-test.jpg)",
+      "Bash(sips -Z 1080 src/assets/logos/logo-instagram-test.jpg --out src/assets/logos/logo-instagram.jpg)",
+      "Bash(git commit -q -m 'Initial commit — Sculpt Society website + Hannah Montana Edition *)"
+    ]
+  }
+}

@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', system-ui, sans-serif;
+  background-color: #F9F5ED;
+  color: #373330;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: #E7552C;
+  color: #F9F5ED;
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-orange px-7 py-3.5 text-sm font-medium tracking-wide text-cream transition-all duration-300 hover:bg-wine hover:shadow-lg hover:shadow-wine/20 active:scale-[0.98];
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-charcoal/20 bg-transparent px-7 py-3.5 text-sm font-medium tracking-wide text-charcoal transition-all duration-300 hover:border-charcoal hover:bg-charcoal hover:text-cream active:scale-[0.98];
+  }
+  .btn-wine {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-cream px-7 py-3.5 text-sm font-medium tracking-wide text-wine transition-all duration-300 hover:bg-pink hover:shadow-lg active:scale-[0.98];
+  }
+  .section-pad {
+    @apply px-6 py-20 md:px-10 md:py-28 lg:py-32;
+  }
+  .container-site {
+    @apply mx-auto w-full max-w-site;
+  }
+  .eyebrow {
+    @apply text-xs font-medium uppercase tracking-[0.25em] text-orange;
+  }
+  .display {
+    @apply font-sans font-semibold leading-[1.05] tracking-tightest;
+  }
+  .input-base {
+    @apply w-full rounded-2xl border border-charcoal/15 bg-cream px-5 py-3.5 text-sm text-charcoal placeholder:text-charcoal/40 transition-colors focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20;
+  }
+  .label-base {
+    @apply mb-2 block text-xs font-medium uppercase tracking-wider text-charcoal/70;
+  }
+}
+
+/* Sparkle decoration */
+.sparkle {
+  position: relative;
+}
+.sparkle::after {
+  content: '✦';
+  position: absolute;
+  color: #D6C774;
+  font-size: 0.6em;
+  top: -0.2em;
+  margin-left: 0.15em;
+}
+
+/* FAQ details marker */
+details > summary {
+  list-style: none;
+  cursor: pointer;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+details[open] .faq-icon {
+  transform: rotate(45deg);
+}

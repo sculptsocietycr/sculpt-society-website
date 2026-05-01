@@ -1,0 +1,16 @@
+node_modules
+dist
+dist-ssr
+*.local
+.DS_Store
+.env
+.env.local
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.log
+Fotos /
+"Logo Sculpt society.jpeg"
+"sculpt society vector.png"
+"Sculpt Society Color pallete .png"
+src/assets/images/color-palette-reference.png

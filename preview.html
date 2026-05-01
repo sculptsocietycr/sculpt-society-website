@@ -1,0 +1,642 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sculpt Society — Preview</title>
+<link rel="icon" type="image/jpeg" href="src/assets/logos/logo-primary.jpeg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          orange: '#E7552C', wine: '#811D16', pink: '#F4BABB',
+          cream: '#F9F5ED', charcoal: '#373330', gold: '#D6C774',
+        },
+        fontFamily: { sans: ['Poppins', 'system-ui', 'sans-serif'] },
+        maxWidth: { site: '1280px' },
+        letterSpacing: { tightest: '-0.04em' },
+      },
+    },
+  };
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Poppins', system-ui, sans-serif; background-color: #F9F5ED; color: #373330; -webkit-font-smoothing: antialiased; }
+  ::selection { background-color: #E7552C; color: #F9F5ED; }
+  .btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; border-radius: 9999px; background-color: #E7552C; padding: 0.875rem 1.75rem; font-size: 0.875rem; font-weight: 500; letter-spacing: 0.025em; color: #F9F5ED; transition: all 0.3s; cursor: pointer; }
+  .btn-primary:hover { background-color: #811D16; box-shadow: 0 10px 25px -5px rgba(129, 29, 22, 0.2); }
+  .btn-secondary { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; border-radius: 9999px; border: 1px solid rgba(55, 51, 48, 0.2); padding: 0.875rem 1.75rem; font-size: 0.875rem; font-weight: 500; letter-spacing: 0.025em; color: #373330; transition: all 0.3s; cursor: pointer; background: transparent; }
+  .btn-secondary:hover { border-color: #373330; background-color: #373330; color: #F9F5ED; }
+  .btn-wine { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; border-radius: 9999px; background-color: #F9F5ED; padding: 0.875rem 1.75rem; font-size: 0.875rem; font-weight: 500; letter-spacing: 0.025em; color: #811D16; transition: all 0.3s; cursor: pointer; }
+  .btn-wine:hover { background-color: #F4BABB; }
+  .section-pad { padding: 5rem 1.5rem; }
+  @media (min-width: 768px) { .section-pad { padding: 7rem 2.5rem; } }
+  @media (min-width: 1024px) { .section-pad { padding: 8rem 2.5rem; } }
+  .container-site { margin-left: auto; margin-right: auto; width: 100%; max-width: 1280px; }
+  .eyebrow { font-size: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.25em; color: #E7552C; }
+  .display { font-weight: 600; line-height: 1.05; letter-spacing: -0.04em; }
+  .input-base { width: 100%; border-radius: 1rem; border: 1px solid rgba(55, 51, 48, 0.15); background-color: #F9F5ED; padding: 0.875rem 1.25rem; font-size: 0.875rem; color: #373330; transition: border-color 0.2s; font-family: inherit; }
+  .input-base:focus { outline: none; border-color: #E7552C; box-shadow: 0 0 0 3px rgba(231, 85, 44, 0.2); }
+  .input-base::placeholder { color: rgba(55, 51, 48, 0.4); }
+  .label-base { display: block; margin-bottom: 0.5rem; font-size: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; color: rgba(55, 51, 48, 0.7); }
+  details > summary { list-style: none; cursor: pointer; }
+  details > summary::-webkit-details-marker { display: none; }
+  details[open] .faq-icon { transform: rotate(45deg); }
+  .faq-icon { transition: transform 0.3s; }
+  .fade-in { animation: fadeIn 0.7s ease-out both; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .header-scrolled { background-color: rgba(249, 245, 237, 0.9); backdrop-filter: blur(12px); box-shadow: 0 1px 2px 0 rgba(0,0,0,.05); }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="site-header" class="fixed inset-x-0 top-0 z-50 transition-all duration-300 backdrop-blur-sm" style="background-color: rgba(249, 245, 237, 0.4);">
+  <div class="container-site flex items-center justify-between px-6 py-4 md:px-10">
+    <a href="#inicio" class="flex items-center gap-3">
+      <img src="src/assets/logos/logo-primary.jpeg" alt="Sculpt Society" class="h-10 w-10 rounded-lg object-cover md:h-11 md:w-11" />
+      <span class="hidden text-sm font-semibold tracking-wide text-charcoal md:inline">Sculpt Society</span>
+    </a>
+    <nav class="hidden items-center gap-8 lg:flex">
+      <a href="#inicio" class="text-sm font-medium text-charcoal/80 hover:text-orange transition-colors">Inicio</a>
+      <a href="#sobre" class="text-sm font-medium text-charcoal/80 hover:text-orange transition-colors">Sobre nosotras</a>
+      <a href="#comunidad" class="text-sm font-medium text-charcoal/80 hover:text-orange transition-colors">Comunidad</a>
+      <a href="#eventos" class="text-sm font-medium text-charcoal/80 hover:text-orange transition-colors">Eventos</a>
+      <a href="#proximo-evento" class="text-sm font-medium text-charcoal/80 hover:text-orange transition-colors">Próximo evento</a>
+      <a href="#faq" class="text-sm font-medium text-charcoal/80 hover:text-orange transition-colors">FAQ</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <a href="#inscripcion" class="btn-primary hidden sm:inline-flex">Inscribirme</a>
+      <button id="menu-btn" class="flex h-10 w-10 items-center justify-center rounded-full border border-charcoal/15 lg:hidden" aria-label="Abrir menú">
+        <span class="relative block h-3 w-5">
+          <span id="bar1" class="absolute left-0 top-0 h-[2px] w-full bg-charcoal transition-transform duration-300"></span>
+          <span id="bar2" class="absolute bottom-0 left-0 h-[2px] w-full bg-charcoal transition-transform duration-300"></span>
+        </span>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="fixed inset-0 z-40 bg-cream transition-opacity duration-300 lg:hidden pointer-events-none opacity-0" style="top: 72px;">
+    <nav class="flex flex-col gap-1 px-8 py-10">
+      <a href="#inicio" class="border-b border-charcoal/10 py-4 text-2xl font-medium text-charcoal hover:text-orange">Inicio</a>
+      <a href="#sobre" class="border-b border-charcoal/10 py-4 text-2xl font-medium text-charcoal hover:text-orange">Sobre nosotras</a>
+      <a href="#comunidad" class="border-b border-charcoal/10 py-4 text-2xl font-medium text-charcoal hover:text-orange">Comunidad</a>
+      <a href="#eventos" class="border-b border-charcoal/10 py-4 text-2xl font-medium text-charcoal hover:text-orange">Eventos</a>
+      <a href="#proximo-evento" class="border-b border-charcoal/10 py-4 text-2xl font-medium text-charcoal hover:text-orange">Próximo evento</a>
+      <a href="#faq" class="border-b border-charcoal/10 py-4 text-2xl font-medium text-charcoal hover:text-orange">FAQ</a>
+      <a href="#inscripcion" class="btn-primary mt-8 w-full">Inscribirme</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="inicio" class="relative overflow-hidden bg-cream pt-28 md:pt-36">
+  <div class="pointer-events-none absolute -right-20 -top-20 h-80 w-80 rounded-full bg-pink/40 blur-3xl"></div>
+  <div class="pointer-events-none absolute -bottom-32 -left-20 h-96 w-96 rounded-full bg-gold/20 blur-3xl"></div>
+  <div class="container-site relative px-6 py-16 md:px-10 md:py-24 lg:py-32">
+    <div class="grid items-center gap-14 lg:grid-cols-12">
+      <div class="lg:col-span-7 fade-in">
+        <p class="eyebrow mb-5">Comunidad wellness · Costa Rica</p>
+        <h1 class="display text-5xl text-charcoal md:text-6xl lg:text-7xl">Una comunidad creada para moverte, conectar y <span class="italic text-orange">brillar</span>.</h1>
+        <p class="mt-6 max-w-xl text-base leading-relaxed text-charcoal/75 md:text-lg">Sculpt Society es una comunidad wellness para mujeres que quieren cuidarse, hacer amigas nuevas y vivir experiencias que se sienten tan bien como se ven.</p>
+        <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+          <a href="#proximo-evento" class="btn-primary">Inscribirme al próximo evento</a>
+          <a href="#sobre" class="btn-secondary">Conocer Sculpt Society</a>
+        </div>
+      </div>
+      <div class="lg:col-span-5 fade-in" style="animation-delay: 0.2s;">
+        <div class="relative mx-auto aspect-[4/5] max-w-md">
+          <div class="absolute inset-0 rounded-[2rem] bg-wine"></div>
+          <img src="src/assets/images/hero.jpg" alt="Sculpt Society" class="relative h-full w-full rounded-[2rem] object-cover shadow-xl" />
+          <div class="absolute -bottom-4 -right-4 hidden h-24 w-24 rounded-full bg-gold/80 md:block"></div>
+          <div class="absolute -left-3 -top-3 hidden h-16 w-16 rounded-full bg-pink md:block"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="sobre" class="bg-cream section-pad">
+  <div class="container-site">
+    <div class="grid items-center gap-12 lg:grid-cols-12">
+      <div class="lg:col-span-5">
+        <div class="relative aspect-[4/5] overflow-hidden rounded-[2rem]">
+          <img src="src/assets/images/about.jpg" alt="Comunidad Sculpt Society" class="h-full w-full object-cover" />
+        </div>
+      </div>
+      <div class="lg:col-span-7">
+        <p class="eyebrow mb-4">Sobre nosotras</p>
+        <h2 class="display text-4xl text-wine md:text-5xl">Wellness que se disfruta más cuando se comparte.</h2>
+        <div class="mt-6 space-y-5 text-base leading-relaxed text-charcoal/80 md:text-lg">
+          <p>Sculpt Society nació de una amistad y de una idea simple: el wellness se disfruta más cuando se comparte. Somos tres amigas unidas por la pasión por el movimiento, el bienestar y las experiencias bonitas.</p>
+          <p>Creamos espacios para mujeres que quieren moverse, conocer personas nuevas, disfrutar momentos lindos y sentirse parte de una comunidad con alegría, intención y mucho glow.</p>
+        </div>
+        <div class="mt-8 inline-flex items-center gap-3 border-t border-gold/60 pt-6">
+          <span class="text-2xl text-gold">✦</span>
+          <span class="text-sm font-medium uppercase tracking-[0.2em] text-charcoal/60">Hecho con cariño desde Costa Rica</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDERS -->
+<section class="bg-pink/30 section-pad">
+  <div class="container-site">
+    <div class="mx-auto max-w-2xl text-center">
+      <p class="eyebrow mb-4">Las fundadoras</p>
+      <h2 class="display text-4xl text-wine md:text-5xl">Tres amigas, una misma visión.</h2>
+      <p class="mt-5 text-base leading-relaxed text-charcoal/75 md:text-lg">Tres amigas unidas por la pasión por el wellness, las experiencias bonitas y la felicidad compartida.</p>
+    </div>
+    <div class="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- Diana -->
+      <div class="group flex flex-col items-center">
+        <div class="relative">
+          <div class="flex h-56 w-56 items-center justify-center rounded-full border border-gold/40 bg-cream shadow-sm transition-transform duration-500 group-hover:-translate-y-1">
+            <span class="text-7xl font-light text-wine">D</span>
+          </div>
+          <span class="absolute -right-2 -top-2 text-xl text-gold">✦</span>
+        </div>
+        <h3 class="mt-6 text-xl font-semibold text-charcoal">Diana Troper</h3>
+        <p class="mt-1 text-xs uppercase tracking-[0.2em] text-charcoal/50">Co-fundadora</p>
+      </div>
+      <!-- Elvira -->
+      <div class="group flex flex-col items-center">
+        <div class="relative">
+          <div class="flex h-56 w-56 items-center justify-center rounded-full border border-gold/40 bg-cream shadow-sm transition-transform duration-500 group-hover:-translate-y-1">
+            <span class="text-7xl font-light text-wine">E</span>
+          </div>
+          <span class="absolute -right-2 -top-2 text-xl text-gold">✦</span>
+        </div>
+        <h3 class="mt-6 text-xl font-semibold text-charcoal">Elvira Fernández</h3>
+        <p class="mt-1 text-xs uppercase tracking-[0.2em] text-charcoal/50">Co-fundadora</p>
+      </div>
+      <!-- Karina -->
+      <div class="group flex flex-col items-center">
+        <div class="relative">
+          <div class="flex h-56 w-56 items-center justify-center rounded-full border border-gold/40 bg-cream shadow-sm transition-transform duration-500 group-hover:-translate-y-1">
+            <span class="text-7xl font-light text-wine">K</span>
+          </div>
+          <span class="absolute -right-2 -top-2 text-xl text-gold">✦</span>
+        </div>
+        <h3 class="mt-6 text-xl font-semibold text-charcoal">Karina Bogantes</h3>
+        <p class="mt-1 text-xs uppercase tracking-[0.2em] text-charcoal/50">Co-fundadora</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BELIEFS -->
+<section class="bg-cream section-pad">
+  <div class="container-site">
+    <div class="mx-auto max-w-2xl text-center">
+      <p class="eyebrow mb-4">Lo que creemos</p>
+      <h2 class="display text-4xl text-wine md:text-5xl">Los pilares que nos mueven.</h2>
+    </div>
+    <div class="mt-16 grid gap-px overflow-hidden rounded-3xl bg-charcoal/10 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="bg-cream p-8 md:p-10 hover:bg-pink/30 transition-colors duration-300">
+        <span class="text-2xl text-gold">◇</span>
+        <h3 class="mt-5 text-2xl font-semibold text-charcoal">Movimiento</h3>
+        <p class="mt-3 text-sm leading-relaxed text-charcoal/70">El cuerpo se siente mejor cuando se mueve con intención y alegría.</p>
+      </div>
+      <div class="bg-cream p-8 md:p-10 hover:bg-pink/30 transition-colors duration-300">
+        <span class="text-2xl text-gold">✿</span>
+        <h3 class="mt-5 text-2xl font-semibold text-charcoal">Amistad</h3>
+        <p class="mt-3 text-sm leading-relaxed text-charcoal/70">Las mejores conversaciones nacen entre clases y mimosas.</p>
+      </div>
+      <div class="bg-cream p-8 md:p-10 hover:bg-pink/30 transition-colors duration-300">
+        <span class="text-2xl text-gold">☼</span>
+        <h3 class="mt-5 text-2xl font-semibold text-charcoal">Felicidad</h3>
+        <p class="mt-3 text-sm leading-relaxed text-charcoal/70">Salir de cada experiencia con una energía más bonita.</p>
+      </div>
+      <div class="bg-cream p-8 md:p-10 hover:bg-pink/30 transition-colors duration-300">
+        <span class="text-2xl text-gold">❋</span>
+        <h3 class="mt-5 text-2xl font-semibold text-charcoal">Wellness</h3>
+        <p class="mt-3 text-sm leading-relaxed text-charcoal/70">Cuidarnos sin presión, sin culpa y con mucha calma.</p>
+      </div>
+      <div class="bg-cream p-8 md:p-10 hover:bg-pink/30 transition-colors duration-300">
+        <span class="text-2xl text-gold">◯</span>
+        <h3 class="mt-5 text-2xl font-semibold text-charcoal">Comunidad</h3>
+        <p class="mt-3 text-sm leading-relaxed text-charcoal/70">Un espacio seguro para encontrarnos, aunque vengas sola.</p>
+      </div>
+      <div class="bg-cream p-8 md:p-10 hover:bg-pink/30 transition-colors duration-300">
+        <span class="text-2xl text-gold">✦</span>
+        <h3 class="mt-5 text-2xl font-semibold text-charcoal">Experiencias bonitas</h3>
+        <p class="mt-3 text-sm leading-relaxed text-charcoal/70">Detalles curados con cariño que se sienten y se recuerdan.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY -->
+<section id="comunidad" class="relative overflow-hidden bg-wine section-pad text-cream">
+  <div class="pointer-events-none absolute -right-32 top-0 h-96 w-96 rounded-full bg-orange/30 blur-3xl"></div>
+  <div class="pointer-events-none absolute -bottom-20 -left-20 h-80 w-80 rounded-full bg-pink/20 blur-3xl"></div>
+  <div class="container-site relative">
+    <div class="grid gap-12 lg:grid-cols-12">
+      <div class="lg:col-span-5">
+        <p class="eyebrow mb-4 text-gold">Nuestra comunidad</p>
+        <h2 class="display text-4xl text-cream md:text-5xl">Para mujeres que quieren más.</h2>
+        <p class="mt-6 max-w-md text-cream/80">Sculpt Society es para vos si querés:</p>
+        <a href="#inscripcion" class="btn-wine mt-8">Quiero ser parte</a>
+        <div class="mt-12 hidden overflow-hidden rounded-2xl lg:block">
+          <img src="src/assets/images/community.jpg" alt="Comunidad Sculpt Society" class="h-80 w-full object-cover" />
+        </div>
+      </div>
+      <ul class="space-y-1 lg:col-span-7">
+        <li class="flex items-baseline gap-5 border-b border-cream/15 py-5 text-xl text-cream/95 md:text-2xl"><span class="font-light text-gold">01</span><span>Hacer amigas nuevas</span></li>
+        <li class="flex items-baseline gap-5 border-b border-cream/15 py-5 text-xl text-cream/95 md:text-2xl"><span class="font-light text-gold">02</span><span>Moverse de forma feliz</span></li>
+        <li class="flex items-baseline gap-5 border-b border-cream/15 py-5 text-xl text-cream/95 md:text-2xl"><span class="font-light text-gold">03</span><span>Ir a eventos lindos aunque vayan solas</span></li>
+        <li class="flex items-baseline gap-5 border-b border-cream/15 py-5 text-xl text-cream/95 md:text-2xl"><span class="font-light text-gold">04</span><span>Compartir un buen brunch</span></li>
+        <li class="flex items-baseline gap-5 border-b border-cream/15 py-5 text-xl text-cream/95 md:text-2xl"><span class="font-light text-gold">05</span><span>Vivir experiencias curadas con cariño</span></li>
+        <li class="flex items-baseline gap-5 border-b border-cream/15 py-5 text-xl text-cream/95 md:text-2xl"><span class="font-light text-gold">06</span><span>Sentirse parte de algo especial</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- NEXT EVENT -->
+<section id="proximo-evento" class="bg-cream section-pad">
+  <div class="container-site">
+    <div class="overflow-hidden rounded-[2.5rem] bg-wine p-8 md:p-14 lg:p-20">
+      <div class="grid gap-12 lg:grid-cols-12">
+        <div class="lg:col-span-7">
+          <p class="eyebrow mb-4 text-gold">Próximo evento</p>
+          <h2 class="display text-4xl text-cream md:text-5xl lg:text-6xl">Sculpt Society — Hannah Montana Edition</h2>
+          <p class="mt-6 max-w-xl text-base leading-relaxed text-cream/85 md:text-lg">Nuestra próxima edición mezcla movimiento, brunch, comunidad, sorpresas y una vibra divertida con guiños a los 2000s. Una mañana para moverte, conectar, brillar y vivir lo mejor de ambos mundos.</p>
+          <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <a href="#inscripcion" class="btn-wine">Inscribirme ahora</a>
+            <span class="inline-flex items-center gap-2 rounded-full border border-gold/60 px-5 py-2.5 text-xs font-medium uppercase tracking-[0.2em] text-gold">
+              <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-gold"></span>Cupos limitados
+            </span>
+          </div>
+        </div>
+        <div class="lg:col-span-5">
+          <div class="relative mb-6 aspect-[4/5] overflow-hidden rounded-2xl bg-pink/20">
+            <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+              <span class="text-3xl text-gold">✦</span>
+              <p class="mt-3 text-xs font-medium uppercase tracking-[0.25em] text-cream/70">Foto próximamente</p>
+            </div>
+          </div>
+          <div>
+            <div class="flex items-baseline justify-between gap-4 border-b border-cream/15 py-4">
+              <span class="text-xs font-medium uppercase tracking-[0.2em] text-cream/60">Fecha</span>
+              <span class="text-right text-base font-medium text-cream md:text-lg">13 de junio</span>
+            </div>
+            <div class="flex items-baseline justify-between gap-4 border-b border-cream/15 py-4">
+              <span class="text-xs font-medium uppercase tracking-[0.2em] text-cream/60">Hora</span>
+              <span class="text-right text-base font-medium text-cream md:text-lg">10:00 a.m.</span>
+            </div>
+            <div class="flex items-baseline justify-between gap-4 border-b border-cream/15 py-4">
+              <span class="text-xs font-medium uppercase tracking-[0.2em] text-cream/60">Lugar</span>
+              <span class="text-right text-base font-medium text-cream md:text-lg">Paloma Studios, Escazú, Costa Rica</span>
+            </div>
+            <div class="flex items-baseline justify-between gap-4 border-b border-cream/15 py-4">
+              <span class="text-xs font-medium uppercase tracking-[0.2em] text-cream/60">Inversión</span>
+              <span class="text-right text-base font-medium text-cream md:text-lg">₡20.000</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INCLUDED -->
+<section class="bg-cream pb-20 md:pb-28">
+  <div class="container-site px-6 md:px-10">
+    <div class="mb-12 max-w-2xl">
+      <p class="eyebrow mb-4">Qué incluye</p>
+      <h2 class="display text-3xl text-charcoal md:text-4xl">Tu cupo incluye una mañana completa.</h2>
+    </div>
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+      <div class="rounded-2xl border border-charcoal/10 bg-cream p-6 hover:-translate-y-1 hover:border-gold hover:shadow-lg hover:shadow-pink/30 transition-all duration-300">
+        <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-pink/40 text-sm font-medium text-wine">1</span>
+        <h3 class="mt-5 text-lg font-semibold text-charcoal">Yoga Sculpt Class</h3>
+        <p class="mt-2 text-sm leading-relaxed text-charcoal/65">Clase guiada para moverte, sudar y soltar — sin presión.</p>
+      </div>
+      <div class="rounded-2xl border border-charcoal/10 bg-cream p-6 hover:-translate-y-1 hover:border-gold hover:shadow-lg hover:shadow-pink/30 transition-all duration-300">
+        <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-pink/40 text-sm font-medium text-wine">2</span>
+        <h3 class="mt-5 text-lg font-semibold text-charcoal">Brunch</h3>
+        <p class="mt-2 text-sm leading-relaxed text-charcoal/65">Una mesa puesta con cariño para compartir entre amigas.</p>
+      </div>
+      <div class="rounded-2xl border border-charcoal/10 bg-cream p-6 hover:-translate-y-1 hover:border-gold hover:shadow-lg hover:shadow-pink/30 transition-all duration-300">
+        <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-pink/40 text-sm font-medium text-wine">3</span>
+        <h3 class="mt-5 text-lg font-semibold text-charcoal">Bedazzling Bar</h3>
+        <p class="mt-2 text-sm leading-relaxed text-charcoal/65">Personalizá un detalle único y llevátelo de recuerdo.</p>
+      </div>
+      <div class="rounded-2xl border border-charcoal/10 bg-cream p-6 hover:-translate-y-1 hover:border-gold hover:shadow-lg hover:shadow-pink/30 transition-all duration-300">
+        <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-pink/40 text-sm font-medium text-wine">4</span>
+        <h3 class="mt-5 text-lg font-semibold text-charcoal">Sorpresitas</h3>
+        <p class="mt-2 text-sm leading-relaxed text-charcoal/65">Detalles curados que hacen la mañana inolvidable.</p>
+      </div>
+      <div class="rounded-2xl border border-charcoal/10 bg-cream p-6 hover:-translate-y-1 hover:border-gold hover:shadow-lg hover:shadow-pink/30 transition-all duration-300">
+        <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-pink/40 text-sm font-medium text-wine">5</span>
+        <h3 class="mt-5 text-lg font-semibold text-charcoal">Comunidad</h3>
+        <p class="mt-2 text-sm leading-relaxed text-charcoal/65">Conocé mujeres lindas en un espacio seguro y cálido.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEDAZZLING BAR -->
+<section class="bg-pink/40 section-pad">
+  <div class="container-site">
+    <div class="grid items-center gap-12 lg:grid-cols-12">
+      <div class="relative lg:col-span-5">
+        <div class="aspect-[4/5] overflow-hidden rounded-[2rem] bg-cream">
+          <div class="flex h-full w-full flex-col items-center justify-center p-10 text-center">
+            <div class="mb-6 grid grid-cols-3 gap-3">
+              <span class="text-2xl text-gold">✦</span><span class="text-2xl text-gold">✦</span><span class="text-2xl text-gold">✦</span>
+              <span class="text-2xl text-gold">✦</span><span class="text-2xl text-gold">✦</span><span class="text-2xl text-gold">✦</span>
+              <span class="text-2xl text-gold">✦</span><span class="text-2xl text-gold">✦</span><span class="text-2xl text-gold">✦</span>
+            </div>
+            <p class="text-xs font-medium uppercase tracking-[0.25em] text-charcoal/60">Sparkle moment</p>
+          </div>
+        </div>
+        <span class="absolute -bottom-3 -right-3 hidden h-20 w-20 rounded-full bg-gold/80 lg:block"></span>
+      </div>
+      <div class="lg:col-span-7">
+        <p class="eyebrow mb-4">Bedazzling Bar</p>
+        <h2 class="display text-4xl text-wine md:text-5xl lg:text-6xl"><span class="italic">Tu sparkle moment.</span></h2>
+        <p class="mt-6 text-xl leading-relaxed text-charcoal md:text-2xl">"Un espacio para personalizar, brillar y llevarte un detalle único de esta edición."</p>
+        <p class="mt-6 max-w-xl text-base leading-relaxed text-charcoal/75">Una activación pensada para que crees algo tuyo: cristales, brillos y detalles que reflejan tu vibra. Fotogénico, divertido y con mucho glow.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AGENDA -->
+<section class="bg-cream section-pad">
+  <div class="container-site">
+    <div class="grid gap-12 lg:grid-cols-12">
+      <div class="lg:col-span-4">
+        <p class="eyebrow mb-4">Agenda tentativa</p>
+        <h2 class="display text-4xl text-wine md:text-5xl">Cómo se vive la mañana.</h2>
+        <p class="mt-5 text-sm italic text-charcoal/60">La agenda puede ajustarse el día del evento.</p>
+      </div>
+      <div class="lg:col-span-8">
+        <ol class="relative border-l-2 border-pink pl-8 md:pl-10">
+          <li class="relative pb-8">
+            <span class="absolute -left-[42px] top-1 flex h-5 w-5 items-center justify-center rounded-full border-2 border-pink bg-cream md:-left-[50px]"><span class="h-1.5 w-1.5 rounded-full bg-orange"></span></span>
+            <p class="font-medium uppercase tracking-[0.15em] text-orange">10:00 a.m.</p>
+            <p class="mt-1 text-xl text-charcoal md:text-2xl">Bienvenida y check-in</p>
+          </li>
+          <li class="relative pb-8">
+            <span class="absolute -left-[42px] top-1 flex h-5 w-5 items-center justify-center rounded-full border-2 border-pink bg-cream md:-left-[50px]"><span class="h-1.5 w-1.5 rounded-full bg-orange"></span></span>
+            <p class="font-medium uppercase tracking-[0.15em] text-orange">10:15 a.m.</p>
+            <p class="mt-1 text-xl text-charcoal md:text-2xl">Clase de Yoga Sculpt</p>
+          </li>
+          <li class="relative pb-8">
+            <span class="absolute -left-[42px] top-1 flex h-5 w-5 items-center justify-center rounded-full border-2 border-pink bg-cream md:-left-[50px]"><span class="h-1.5 w-1.5 rounded-full bg-orange"></span></span>
+            <p class="font-medium uppercase tracking-[0.15em] text-orange">11:15 a.m.</p>
+            <p class="mt-1 text-xl text-charcoal md:text-2xl">Brunch</p>
+          </li>
+          <li class="relative pb-8">
+            <span class="absolute -left-[42px] top-1 flex h-5 w-5 items-center justify-center rounded-full border-2 border-pink bg-cream md:-left-[50px]"><span class="h-1.5 w-1.5 rounded-full bg-orange"></span></span>
+            <p class="font-medium uppercase tracking-[0.15em] text-orange">11:45 a.m.</p>
+            <p class="mt-1 text-xl text-charcoal md:text-2xl">Bedazzling Bar + sorpresitas</p>
+          </li>
+          <li class="relative">
+            <span class="absolute -left-[42px] top-1 flex h-5 w-5 items-center justify-center rounded-full border-2 border-pink bg-cream md:-left-[50px]"><span class="h-1.5 w-1.5 rounded-full bg-orange"></span></span>
+            <p class="font-medium uppercase tracking-[0.15em] text-orange">12:30 p.m.</p>
+            <p class="mt-1 text-xl text-charcoal md:text-2xl">Cierre y fotos</p>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REGISTRATION FORM -->
+<section id="inscripcion" class="bg-pink/30 section-pad">
+  <div class="container-site">
+    <div class="grid gap-12 lg:grid-cols-12">
+      <div class="lg:col-span-5">
+        <p class="eyebrow mb-4">Reservá tu lugar</p>
+        <h2 class="display text-4xl text-wine md:text-5xl">Inscribite a la Hannah Montana Edition.</h2>
+        <p class="mt-5 text-base leading-relaxed text-charcoal/75 md:text-lg">Completá el formulario y te confirmamos tu cupo por WhatsApp en menos de 24 horas.</p>
+        <div class="mt-10 rounded-2xl bg-cream p-7">
+          <p class="text-xs font-medium uppercase tracking-[0.2em] text-orange">Método de pago</p>
+          <p class="mt-3 text-2xl font-semibold text-wine">SINPE Móvil</p>
+          <p class="mt-1 text-base text-charcoal">+506 6257 5319</p>
+          <p class="text-sm text-charcoal/60">A nombre de Elvira Fernández</p>
+          <p class="mt-4 border-t border-charcoal/10 pt-4 text-sm leading-relaxed text-charcoal/70">Realizá el SINPE por ₡20.000 a nombre de Elvira Fernández y adjuntá el detalle del comprobante en el formulario. Tu cupo se confirma una vez verificamos el pago.</p>
+        </div>
+        <a href="https://wa.me/50662575319?text=Hola%2C%20quiero%20inscribirme%20a%20Sculpt%20Society%20%E2%80%94%20Hannah%20Montana%20Edition" target="_blank" rel="noreferrer" class="btn-secondary mt-6">Prefiero inscribirme por WhatsApp</a>
+      </div>
+      <div class="lg:col-span-7">
+        <div class="rounded-3xl bg-cream p-7 md:p-10">
+          <form class="space-y-5" onsubmit="event.preventDefault(); alert('Esto es solo un preview. El formulario funcional está en la versión React.');">
+            <div>
+              <label class="label-base">Nombre completo *</label>
+              <input type="text" required class="input-base" placeholder="Tu nombre completo" />
+            </div>
+            <div class="grid gap-5 sm:grid-cols-2">
+              <div>
+                <label class="label-base">Teléfono *</label>
+                <input type="tel" required class="input-base" placeholder="+506 0000 0000" />
+              </div>
+              <div>
+                <label class="label-base">Correo electrónico *</label>
+                <input type="email" required class="input-base" placeholder="tu@correo.com" />
+              </div>
+            </div>
+            <div>
+              <label class="label-base">Instagram</label>
+              <input type="text" class="input-base" placeholder="@tuusuario" />
+            </div>
+            <div>
+              <label class="label-base">¿Vienes sola o con amigas? *</label>
+              <select required class="input-base appearance-none">
+                <option value="" disabled selected>Seleccioná una opción</option>
+                <option>Voy sola</option>
+                <option>Con amigas (también se inscriben aparte)</option>
+                <option>Voy sola pero quiero conocer gente</option>
+              </select>
+            </div>
+            <div>
+              <label class="label-base">¿Tenés alguna lesión o condición que debamos conocer?</label>
+              <textarea rows="2" class="input-base" placeholder="Si no, dejalo en blanco."></textarea>
+            </div>
+            <div>
+              <label class="label-base">Comprobante de pago / SINPE *</label>
+              <textarea rows="3" required class="input-base" placeholder="Indicá si ya hiciste el SINPE: monto, fecha, hora y los últimos dígitos del número desde el que se envió."></textarea>
+            </div>
+            <div>
+              <label class="label-base">Mensaje adicional</label>
+              <textarea rows="3" class="input-base" placeholder="Algo que quieras contarnos."></textarea>
+            </div>
+            <button type="submit" class="btn-primary w-full">Enviar inscripción</button>
+            <p class="text-center text-xs text-charcoal/50">Al enviar este formulario aceptás que te contactemos por WhatsApp para confirmar tu cupo.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section id="eventos" class="bg-cream section-pad">
+  <div class="container-site">
+    <div class="grid items-end gap-8 lg:grid-cols-12">
+      <div class="lg:col-span-7">
+        <p class="eyebrow mb-4">Eventos Sculpt Society</p>
+        <h2 class="display text-4xl text-wine md:text-5xl">Esto es solo el comienzo.</h2>
+        <p class="mt-5 max-w-xl text-base leading-relaxed text-charcoal/75 md:text-lg">Sculpt Society es una comunidad continua. Estamos curando experiencias para todo el año.</p>
+      </div>
+      <div class="lg:col-span-5 lg:text-right">
+        <a href="https://instagram.com/sculptsocietycr" target="_blank" rel="noreferrer" class="btn-secondary">Seguinos en Instagram</a>
+      </div>
+    </div>
+    <div class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="group overflow-hidden rounded-2xl border border-charcoal/10 bg-cream hover:-translate-y-1 hover:border-wine/30 hover:shadow-lg transition-all duration-300">
+        <div class="aspect-video overflow-hidden bg-pink/30"><img src="src/assets/images/stock/yoga.jpg" alt="Yoga Sculpt" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" /></div>
+        <div class="p-7"><h3 class="text-xl font-semibold text-charcoal">Yoga Sculpt</h3><p class="mt-2 text-sm leading-relaxed text-charcoal/65">Clases temáticas para moverte feliz.</p></div>
+      </div>
+      <div class="group overflow-hidden rounded-2xl border border-charcoal/10 bg-cream hover:-translate-y-1 hover:border-wine/30 hover:shadow-lg transition-all duration-300">
+        <div class="aspect-video overflow-hidden bg-pink/30"><img src="src/assets/images/stock/brunch.jpg" alt="Brunch" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" /></div>
+        <div class="p-7"><h3 class="text-xl font-semibold text-charcoal">Brunch experiences</h3><p class="mt-2 text-sm leading-relaxed text-charcoal/65">Mesas largas para compartir entre amigas.</p></div>
+      </div>
+      <div class="group overflow-hidden rounded-2xl border border-charcoal/10 bg-cream hover:-translate-y-1 hover:border-wine/30 hover:shadow-lg transition-all duration-300">
+        <div class="aspect-video overflow-hidden bg-pink/30"><img src="src/assets/images/stock/sparkle.jpg" alt="Bedazzling Bar" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" /></div>
+        <div class="p-7"><h3 class="text-xl font-semibold text-charcoal">Bedazzling Bar</h3><p class="mt-2 text-sm leading-relaxed text-charcoal/65">Activaciones creativas y fotogénicas.</p></div>
+      </div>
+      <div class="group overflow-hidden rounded-2xl border border-charcoal/10 bg-cream hover:-translate-y-1 hover:border-wine/30 hover:shadow-lg transition-all duration-300">
+        <div class="aspect-video overflow-hidden bg-pink/30"><img src="src/assets/images/stock/event.jpg" alt="Activaciones" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" /></div>
+        <div class="p-7"><h3 class="text-xl font-semibold text-charcoal">Activaciones con marcas</h3><p class="mt-2 text-sm leading-relaxed text-charcoal/65">Colaboraciones con marcas wellness.</p></div>
+      </div>
+      <div class="group overflow-hidden rounded-2xl border border-charcoal/10 bg-cream hover:-translate-y-1 hover:border-wine/30 hover:shadow-lg transition-all duration-300">
+        <div class="aspect-video overflow-hidden bg-pink/30"><img src="src/assets/images/stock/wellness.jpg" alt="Wellness mornings" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" /></div>
+        <div class="p-7"><h3 class="text-xl font-semibold text-charcoal">Wellness mornings</h3><p class="mt-2 text-sm leading-relaxed text-charcoal/65">Mañanas de movimiento, comida y calma.</p></div>
+      </div>
+      <div class="group overflow-hidden rounded-2xl border border-charcoal/10 bg-cream hover:-translate-y-1 hover:border-wine/30 hover:shadow-lg transition-all duration-300">
+        <div class="aspect-video overflow-hidden bg-pink/30"><img src="src/assets/images/stock/themed.jpg" alt="Experiencias temáticas" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" /></div>
+        <div class="p-7"><h3 class="text-xl font-semibold text-charcoal">Experiencias temáticas</h3><p class="mt-2 text-sm leading-relaxed text-charcoal/65">Ediciones especiales con vibra única.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="bg-cream pb-20 md:pb-28">
+  <div class="container-site px-6 md:px-10">
+    <div class="mb-12 max-w-2xl">
+      <p class="eyebrow mb-4">Moodboard</p>
+      <h2 class="display text-4xl text-wine md:text-5xl">La vibra Sculpt Society.</h2>
+      <p class="mt-4 text-sm italic text-charcoal/60">Sesión Paloma Studios. Más fotos del primer evento próximamente.</p>
+    </div>
+    <div class="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-5">
+      <div class="group relative aspect-square overflow-hidden rounded-2xl"><img src="src/assets/images/gallery-01.jpg" alt="Cobra pose" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" /></div>
+      <div class="group relative aspect-square overflow-hidden rounded-2xl"><img src="src/assets/images/gallery-02.jpg" alt="Downward dog" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" /></div>
+      <div class="group relative aspect-square overflow-hidden rounded-2xl"><img src="src/assets/images/gallery-03.jpg" alt="Warrior pose" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" /></div>
+      <div class="group relative aspect-square overflow-hidden rounded-2xl"><img src="src/assets/images/gallery-04.jpg" alt="Lunge" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" /></div>
+      <div class="group relative aspect-square overflow-hidden rounded-2xl"><img src="src/assets/images/gallery-05.jpg" alt="Movimiento" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" /></div>
+      <div class="group relative aspect-square overflow-hidden rounded-2xl"><img src="src/assets/images/gallery-06.jpg" alt="Mat work" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" /></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="bg-cream section-pad">
+  <div class="container-site">
+    <div class="grid gap-12 lg:grid-cols-12">
+      <div class="lg:col-span-4">
+        <p class="eyebrow mb-4">Preguntas frecuentes</p>
+        <h2 class="display text-4xl text-wine md:text-5xl">Lo que necesitás saber.</h2>
+      </div>
+      <div class="lg:col-span-8">
+        <div class="divide-y divide-charcoal/10 border-y border-charcoal/10">
+          <details class="group py-5"><summary class="flex items-center justify-between gap-6"><span class="text-base font-medium text-charcoal md:text-lg">¿Necesito experiencia previa?</span><span class="faq-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-charcoal/20 text-charcoal">+</span></summary><div class="mt-3 max-w-3xl text-sm leading-relaxed text-charcoal/70 md:text-base">Para nada. La clase de Yoga Sculpt está diseñada para todos los niveles. Solo traé ganas de moverte y disfrutar.</div></details>
+          <details class="group py-5"><summary class="flex items-center justify-between gap-6"><span class="text-base font-medium text-charcoal md:text-lg">¿Puedo ir sola?</span><span class="faq-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-charcoal/20 text-charcoal">+</span></summary><div class="mt-3 max-w-3xl text-sm leading-relaxed text-charcoal/70 md:text-base">¡Claro que sí! De hecho, la mayoría de nuestras asistentes vienen solas. Es un espacio seguro y cálido pensado para conocer mujeres lindas.</div></details>
+          <details class="group py-5"><summary class="flex items-center justify-between gap-6"><span class="text-base font-medium text-charcoal md:text-lg">¿Qué incluye el precio?</span><span class="faq-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-charcoal/20 text-charcoal">+</span></summary><div class="mt-3 max-w-3xl text-sm leading-relaxed text-charcoal/70 md:text-base">Tu cupo incluye la clase de Yoga Sculpt, el brunch, acceso al Bedazzling Bar, sorpresitas curadas y la experiencia completa de comunidad.</div></details>
+          <details class="group py-5"><summary class="flex items-center justify-between gap-6"><span class="text-base font-medium text-charcoal md:text-lg">¿Cómo reservo mi espacio?</span><span class="faq-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-charcoal/20 text-charcoal">+</span></summary><div class="mt-3 max-w-3xl text-sm leading-relaxed text-charcoal/70 md:text-base">Completá el formulario de inscripción en esta misma página. También podés escribirnos por WhatsApp si preferís coordinar por ahí.</div></details>
+          <details class="group py-5"><summary class="flex items-center justify-between gap-6"><span class="text-base font-medium text-charcoal md:text-lg">¿Cómo pago?</span><span class="faq-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-charcoal/20 text-charcoal">+</span></summary><div class="mt-3 max-w-3xl text-sm leading-relaxed text-charcoal/70 md:text-base">El pago se realiza por SINPE Móvil al +506 6257 5319 a nombre de Elvira Fernández. Adjuntá el detalle del comprobante en el formulario.</div></details>
+          <details class="group py-5"><summary class="flex items-center justify-between gap-6"><span class="text-base font-medium text-charcoal md:text-lg">¿Dónde es el evento?</span><span class="faq-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-charcoal/20 text-charcoal">+</span></summary><div class="mt-3 max-w-3xl text-sm leading-relaxed text-charcoal/70 md:text-base">En Paloma Studios, Escazú, Costa Rica. Te enviamos la ubicación exacta por WhatsApp al confirmar tu cupo.</div></details>
+          <details class="group py-5"><summary class="flex items-center justify-between gap-6"><span class="text-base font-medium text-charcoal md:text-lg">¿Hay cupos limitados?</span><span class="faq-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-charcoal/20 text-charcoal">+</span></summary><div class="mt-3 max-w-3xl text-sm leading-relaxed text-charcoal/70 md:text-base">Sí. Los cupos son muy limitados para mantener la experiencia íntima y bien curada. Te recomendamos reservar con tiempo.</div></details>
+          <details class="group py-5"><summary class="flex items-center justify-between gap-6"><span class="text-base font-medium text-charcoal md:text-lg">¿Qué debo llevar?</span><span class="faq-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-charcoal/20 text-charcoal">+</span></summary><div class="mt-3 max-w-3xl text-sm leading-relaxed text-charcoal/70 md:text-base">Ropa cómoda para moverte, mat de yoga si tenés (también hay disponibles), una botella de agua y muchas ganas de pasarla bien.</div></details>
+          <details class="group py-5"><summary class="flex items-center justify-between gap-6"><span class="text-base font-medium text-charcoal md:text-lg">¿Qué es el Bedazzling Bar?</span><span class="faq-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-charcoal/20 text-charcoal">+</span></summary><div class="mt-3 max-w-3xl text-sm leading-relaxed text-charcoal/70 md:text-base">Una activación creativa donde podés personalizar un detalle con cristales y brillos para llevarte un recuerdo único de la edición.</div></details>
+          <details class="group py-5"><summary class="flex items-center justify-between gap-6"><span class="text-base font-medium text-charcoal md:text-lg">¿Se tomarán fotos y videos?</span><span class="faq-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-charcoal/20 text-charcoal">+</span></summary><div class="mt-3 max-w-3xl text-sm leading-relaxed text-charcoal/70 md:text-base">Sí, tendremos fotógrafa cubriendo la experiencia. Si preferís no aparecer, decinos al llegar y respetamos tu espacio.</div></details>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-charcoal text-cream">
+  <div class="container-site px-6 py-16 md:px-10 md:py-20">
+    <div class="grid gap-12 md:grid-cols-12">
+      <div class="md:col-span-5">
+        <div class="flex items-center gap-3">
+          <img src="src/assets/logos/logo-primary.jpeg" alt="Sculpt Society" class="h-12 w-12 rounded-lg object-cover" />
+          <span class="text-lg font-semibold tracking-wide">Sculpt Society</span>
+        </div>
+        <p class="mt-5 max-w-sm text-sm leading-relaxed text-cream/70">Comunidad wellness para mujeres en Costa Rica.</p>
+        <a href="#inscripcion" class="btn-primary mt-8">Inscribirme</a>
+      </div>
+      <div class="md:col-span-3">
+        <p class="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-gold">Navegá</p>
+        <ul class="space-y-3">
+          <li><a href="#inicio" class="text-sm text-cream/80 hover:text-orange transition-colors">Inicio</a></li>
+          <li><a href="#sobre" class="text-sm text-cream/80 hover:text-orange transition-colors">Sobre nosotras</a></li>
+          <li><a href="#comunidad" class="text-sm text-cream/80 hover:text-orange transition-colors">Comunidad</a></li>
+          <li><a href="#eventos" class="text-sm text-cream/80 hover:text-orange transition-colors">Eventos</a></li>
+          <li><a href="#proximo-evento" class="text-sm text-cream/80 hover:text-orange transition-colors">Próximo evento</a></li>
+          <li><a href="#faq" class="text-sm text-cream/80 hover:text-orange transition-colors">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="md:col-span-4">
+        <p class="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-gold">Contacto</p>
+        <ul class="space-y-3 text-sm text-cream/80">
+          <li><a href="https://instagram.com/sculptsocietycr" target="_blank" rel="noreferrer" class="hover:text-orange transition-colors">Instagram @sculptsocietycr</a></li>
+          <li><a href="mailto:sculptsocietycr@gmail.com" class="hover:text-orange transition-colors">sculptsocietycr@gmail.com</a></li>
+          <li><a href="https://wa.me/50662575319" target="_blank" rel="noreferrer" class="hover:text-orange transition-colors">WhatsApp +506 6257 5319</a></li>
+          <li class="text-cream/60">sculptsocietycr.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-14 flex flex-col items-start justify-between gap-4 border-t border-cream/15 pt-8 text-xs text-cream/50 md:flex-row md:items-center">
+      <p>© 2026 Sculpt Society. Todos los derechos reservados.</p>
+      <p class="flex items-center gap-2"><span class="text-gold">✦</span>Hecho con cariño desde Costa Rica</p>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/50662575319?text=Hola%2C%20quiero%20m%C3%A1s%20info%20sobre%20Sculpt%20Society" target="_blank" rel="noreferrer" aria-label="WhatsApp" class="fixed bottom-5 right-5 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-orange shadow-lg transition-transform duration-300 hover:scale-105 md:bottom-8 md:right-8" style="box-shadow: 0 10px 25px -5px rgba(231, 85, 44, 0.3);">
+  <svg viewBox="0 0 24 24" fill="currentColor" class="h-7 w-7 text-cream"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.464 3.488"/></svg>
+</a>
+
+<script>
+  // Sticky header
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 30) header.classList.add('header-scrolled');
+    else header.classList.remove('header-scrolled');
+  });
+  // Mobile menu
+  const btn = document.getElementById('menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const bar1 = document.getElementById('bar1');
+  const bar2 = document.getElementById('bar2');
+  let open = false;
+  btn.addEventListener('click', () => {
+    open = !open;
+    menu.classList.toggle('opacity-0', !open);
+    menu.classList.toggle('pointer-events-none', !open);
+    menu.classList.toggle('opacity-100', open);
+    menu.classList.toggle('pointer-events-auto', open);
+    bar1.style.transform = open ? 'translateY(6px) rotate(45deg)' : '';
+    bar2.style.transform = open ? 'translateY(-6px) rotate(-45deg)' : '';
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  document.querySelectorAll('#mobile-menu a').forEach(a => a.addEventListener('click', () => btn.click()));
+</script>
+</body>
+</html>
