@@ -19,7 +19,26 @@
       "Bash(rm src/assets/logos/logo-instagram.png)",
       "Bash(sips -c 1200 1200 src/assets/logos/logo-primary.jpeg --out src/assets/logos/logo-instagram-test.jpg)",
       "Bash(sips -Z 1080 src/assets/logos/logo-instagram-test.jpg --out src/assets/logos/logo-instagram.jpg)",
-      "Bash(git commit -q -m 'Initial commit — Sculpt Society website + Hannah Montana Edition *)"
+      "Bash(git commit -q -m 'Initial commit — Sculpt Society website + Hannah Montana Edition *)",
+      "Read(//private/tmp/**)",
+      "Bash(curl -sL -o nodejs.pkg \"https://nodejs.org/dist/v20.18.0/node-v20.18.0.pkg\")",
+      "Bash(mkdir -p exports)",
+      "Bash(qlmanage -t -s 2160 -o exports invite.html)",
+      "Bash(sips -g pixelWidth -g pixelHeight \"/Users/elvira/Desktop/Sculpt Society/exports/invite.html.png\")",
+      "Bash(rm -f exports/invite.html.png)",
+      "Bash(qlmanage -t -s 1080 -o exports _invite-square.html)",
+      "Bash(qlmanage -t -s 1920 -o exports _invite-story.html)",
+      "Bash(sips -g pixelWidth -g pixelHeight exports/*.png)",
+      "Bash(rm -f exports/_invite-story.html.png)",
+      "Bash(qlmanage -t -s 1080 -o exports _invite-story.html)",
+      "Bash(export PATH=\"/usr/local/bin:$PATH\")",
+      "Bash(npm --version)",
+      "Bash(npm run *)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(rm -f exports/_invite-square.html.png exports/_invite-story.html.png)",
+      "Bash(node _render-invites.mjs)",
+      "Bash(git add *)",
+      "Bash(git commit *)"
     ]
   }
 }

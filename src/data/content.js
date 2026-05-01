@@ -237,7 +237,7 @@ export const form = {
   title: 'Inscribite a la Hannah Montana Edition.',
   subtitle:
     'Completá el formulario y te confirmamos tu cupo por WhatsApp en menos de 24 horas.',
-  endpoint: 'https://formspree.io/f/FORM_ID_AQUI',
+  endpoint: 'https://formspree.io/f/xbdwldbr',
   payment: {
     method: 'SINPE Móvil',
     number: '+506 6257 5319',
