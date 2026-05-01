@@ -14,6 +14,7 @@ import Gallery from './components/Gallery.jsx';
 import FAQ from './components/FAQ.jsx';
 import Footer from './components/Footer.jsx';
 import WhatsAppFloat from './components/WhatsAppFloat.jsx';
+import LogoDivider from './components/LogoDivider.jsx';
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
         <About />
         <Founders />
         <Beliefs />
+        <LogoDivider variant="cream" />
         <Community />
         <NextEvent />
         <Included />

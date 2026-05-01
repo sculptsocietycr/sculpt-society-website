@@ -6,13 +6,16 @@ export default function Footer() {
       <div className="container-site px-6 py-16 md:px-10 md:py-20">
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-5">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-4">
               <img
-                src={logos.primary}
+                src={logos.creamOnCharcoal}
                 alt={brand.name}
-                className="h-12 w-12 rounded-lg object-cover"
+                className="h-20 w-20 rounded-xl object-cover md:h-24 md:w-24"
               />
-              <span className="text-lg font-semibold tracking-wide">{brand.name}</span>
+              <div>
+                <span className="block text-xl font-semibold tracking-wide">{brand.name}</span>
+                <span className="block text-xs uppercase tracking-[0.25em] text-gold">Costa Rica</span>
+              </div>
             </div>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-cream/70">
               {footer.tagline}

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { bedazzlingBar, images } from '../data/content';
+import { bedazzlingBar, images, logos } from '../data/content';
 
 export default function BedazzlingBar() {
   return (
@@ -31,8 +31,16 @@ export default function BedazzlingBar() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="lg:col-span-7"
           >
-            <p className="eyebrow mb-4">{bedazzlingBar.eyebrow}</p>
-            <h2 className="display text-4xl text-wine md:text-5xl lg:text-6xl">
+            <div className="flex items-center gap-4">
+              <img
+                src={logos.creamOnPink}
+                alt=""
+                aria-hidden="true"
+                className="h-14 w-14 rounded-xl object-cover"
+              />
+              <p className="eyebrow">{bedazzlingBar.eyebrow}</p>
+            </div>
+            <h2 className="mt-5 display text-4xl text-wine md:text-5xl lg:text-6xl">
               <span className="italic">{bedazzlingBar.title}</span>
             </h2>
             <p className="mt-6 text-xl leading-relaxed text-charcoal md:text-2xl">

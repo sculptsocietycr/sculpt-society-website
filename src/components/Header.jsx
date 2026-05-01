@@ -29,11 +29,11 @@ export default function Header() {
       <div className="container-site flex items-center justify-between px-6 py-4 md:px-10">
         <a href="#inicio" className="flex items-center gap-3" aria-label={brand.name}>
           <img
-            src={logos.primary}
+            src={logos.wineOnCream}
             alt={brand.name}
-            className="h-10 w-10 rounded-lg object-cover md:h-11 md:w-11"
+            className="h-14 w-14 rounded-xl object-cover md:h-16 md:w-16"
           />
-          <span className="hidden text-sm font-semibold tracking-wide text-charcoal md:inline">
+          <span className="hidden text-base font-semibold tracking-wide text-wine md:inline">
             {brand.name}
           </span>
         </a>

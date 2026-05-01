@@ -7,6 +7,13 @@
 
 import logoPrimary from '../assets/logos/logo-primary.jpeg';
 import logoVector from '../assets/logos/logo-vector.png';
+import logoWineOnCream from '../assets/logos/logo-wine-on-cream.jpg';
+import logoCreamOnWine from '../assets/logos/logo-cream-on-wine.jpg';
+import logoCreamOnCharcoal from '../assets/logos/logo-cream-on-charcoal.jpg';
+import logoGoldOnWine from '../assets/logos/logo-gold-on-wine.jpg';
+import logoCreamOnPink from '../assets/logos/logo-cream-on-pink.jpg';
+import logoWineOnPink from '../assets/logos/logo-wine-on-pink.jpg';
+import logoWineOnGold from '../assets/logos/logo-wine-on-gold.jpg';
 
 // Única foto personal usada en el sitio (sección Sobre nosotras, espejada)
 import aboutImg from '../assets/images/about.jpg';
@@ -30,8 +37,15 @@ export const brand = {
 };
 
 export const logos = {
-  primary: logoPrimary,
-  vector: logoVector,
+  primary: logoPrimary,           // pink letters / wine bg (oficial)
+  vector: logoVector,             // versión vector
+  wineOnCream: logoWineOnCream,   // letras vino / fondo crema (header sobre cream)
+  creamOnWine: logoCreamOnWine,   // letras crema / fondo vino (hero secundario)
+  creamOnCharcoal: logoCreamOnCharcoal, // letras crema / fondo carbón (footer dark)
+  goldOnWine: logoGoldOnWine,     // letras dorado / fondo vino (premium accent)
+  creamOnPink: logoCreamOnPink,   // letras crema / fondo rosado (bedazzling bar)
+  wineOnPink: logoWineOnPink,     // letras vino / fondo rosado (community accent)
+  wineOnGold: logoWineOnGold,     // letras vino / fondo dorado (gold accent)
 };
 
 export const images = {

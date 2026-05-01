@@ -44,7 +44,14 @@
       "Bash(sips -g pixelWidth -g pixelHeight -g format src/assets/images/about.jpg)",
       "Bash(mv bedazzling-bar.jpg.jpg bedazzling-bar-orig.jpg)",
       "Bash(sips -Z 1600 -s formatOptions 85 bedazzling-bar-orig.jpg --out bedazzling-bar.jpg)",
-      "Bash(sips -g pixelWidth -g pixelHeight bedazzling-bar.jpg)"
+      "Bash(sips -g pixelWidth -g pixelHeight bedazzling-bar.jpg)",
+      "Bash(git branch *)",
+      "Bash(git remote *)",
+      "Bash(git push *)",
+      "Bash(git fetch *)",
+      "Bash(git pull *)",
+      "Bash(git stash *)",
+      "Bash(node tools/make-logo-variants.mjs)"
     ]
   }
 }
