@@ -41,7 +41,7 @@ export default function Founders() {
               </div>
               <h3 className="mt-6 text-xl font-semibold text-charcoal">{f.name}</h3>
               <p className="mt-1 text-xs uppercase tracking-[0.2em] text-charcoal/50">
-                Co-fundadora
+                {f.role || 'Co-fundadora'}
               </p>
             </motion.div>
           ))}

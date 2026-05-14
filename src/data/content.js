@@ -30,10 +30,10 @@ export const brand = {
   instagramUrl: 'https://instagram.com/sculptsocietycr',
   domain: 'sculptsocietycr.com',
   email: 'sculptsocietycr@gmail.com',
-  whatsapp: '+506 6257 5319',
-  whatsappRaw: '50662575319',
-  sinpeNumber: '+506 6257 5319',
-  sinpeOwner: 'Elvira Fernández',
+  whatsapp: '+506 7010 1783',
+  whatsappRaw: '50670101783',
+  sinpeNumber: '+506 7010 1783',
+  sinpeOwner: 'Diana Troper',
 };
 
 export const logos = {
@@ -112,9 +112,9 @@ export const founders = {
   description:
     'Tres amigas unidas por la pasión por el wellness, las experiencias bonitas y la felicidad compartida.',
   list: [
-    { name: 'Diana Troper', initial: 'D', image: null },
-    { name: 'Elvira Fernández', initial: 'E', image: null },
-    { name: 'Karina Bogantes', initial: 'K', image: null },
+    { name: 'Diana Troper', initial: 'D', image: null, role: 'Co-fundadora · Instructora' },
+    { name: 'Elvira Fernández', initial: 'E', image: null, role: 'Co-fundadora' },
+    { name: 'Karina Bogantes', initial: 'K', image: null, role: 'Co-fundadora' },
   ],
 };
 
@@ -224,13 +224,47 @@ export const form = {
   endpoint: 'https://formspree.io/f/xbdwldbr',
   payment: {
     method: 'SINPE Móvil',
-    number: '+506 6257 5319',
-    name: 'Elvira Fernández',
-    note: 'Realizá el SINPE por ₡20.000 a nombre de Elvira Fernández y adjuntá el detalle del comprobante en el formulario. Tu cupo se confirma una vez verificamos el pago.',
+    number: '+506 7010 1783',
+    name: 'Diana Troper',
+    note: 'Realizá el SINPE por ₡20.000 a nombre de Diana Troper y adjuntá el detalle del comprobante en el formulario. Tu cupo se confirma una vez verificamos el pago.',
   },
+  brunchIntro:
+    'Elegí 1 opción de brunch para el evento. Todo con ingredientes frescos y de alta calidad, en alianza con Paloma Studio.',
+  brunchOptions: [
+    {
+      value: 'puravida-pinto',
+      title: 'Opción 1 · Puravida Pinto',
+      tagline: 'Energía balanceada',
+      description: 'Pinto, aguacate, pico de gallo, queso fresco y huevos revueltos. Servido en bowl o en wrap.',
+    },
+    {
+      value: 'omelette',
+      title: 'Opción 2 · Omelette',
+      tagline: 'Nutritivo',
+      description: 'Dos huevos con hongos, cebolla caramelizada y tomate cherry. Acompañado de ensalada verde.',
+    },
+    {
+      value: 'wrap-pollo',
+      title: 'Opción 3 · Wrap de Pollo',
+      tagline: 'Boost de proteína',
+      description: 'Pollo, huevo duro, kale y aderezo de hierbas, envuelto en tortilla de harina. Acompañado con chips de kale.',
+    },
+    {
+      value: 'matcha-french-toast',
+      title: 'Opción 4 · Matcha French Toast',
+      tagline: 'Sweet & good vibes',
+      description: 'Pan brioche, frutas de temporada, crema de matcha y miel de abeja.',
+    },
+    {
+      value: 'smoothie-bowl',
+      title: 'Opción 5 · Smoothie Bowl',
+      tagline: 'Pretty and good for you',
+      description: 'Smoothie aura de frutos rojos, proteína, miel y yogurt, terminado con frutas de temporada, granola y mantequilla de maní.',
+    },
+  ],
   whatsappFallback: {
     label: 'Prefiero inscribirme por WhatsApp',
-    href: 'https://wa.me/50662575319?text=Hola%2C%20quiero%20inscribirme%20a%20Sculpt%20Society%20%E2%80%94%20Hannah%20Montana%20Edition',
+    href: 'https://wa.me/50670101783?text=Hola%2C%20quiero%20inscribirme%20a%20Sculpt%20Society%20%E2%80%94%20Hannah%20Montana%20Edition',
   },
   successMessage:
     '¡Recibimos tu inscripción! Te contactamos por WhatsApp en menos de 24 horas para confirmar tu cupo.',
@@ -249,7 +283,7 @@ export const faq = {
     { q: '¿Puedo ir sola?', a: '¡Claro que sí! De hecho, la mayoría de nuestras asistentes vienen solas. Es un espacio seguro y cálido pensado para conocer mujeres lindas.' },
     { q: '¿Qué incluye el precio?', a: 'Tu cupo incluye la clase de Yoga Sculpt, el brunch, acceso al Bedazzling Bar, sorpresitas curadas y la experiencia completa de comunidad.' },
     { q: '¿Cómo reservo mi espacio?', a: 'Completá el formulario de inscripción en esta misma página. También podés escribirnos por WhatsApp si preferís coordinar por ahí.' },
-    { q: '¿Cómo pago?', a: 'El pago se realiza por SINPE Móvil al +506 6257 5319 a nombre de Elvira Fernández. Adjuntá el detalle del comprobante en el formulario.' },
+    { q: '¿Cómo pago?', a: 'El pago se realiza por SINPE Móvil al +506 7010 1783 a nombre de Diana Troper. Adjuntá el detalle del comprobante en el formulario.' },
     { q: '¿Dónde es el evento?', a: 'En Paloma Studios, Escazú, Costa Rica. Te enviamos la ubicación exacta por WhatsApp al confirmar tu cupo.' },
     { q: '¿Hay cupos limitados?', a: 'Sí. Los cupos son muy limitados para mantener la experiencia íntima y bien curada. Te recomendamos reservar con tiempo.' },
     { q: '¿Qué debo llevar?', a: 'Ropa cómoda para moverte, mat de yoga si tenés (también hay disponibles), una botella de agua y muchas ganas de pasarla bien.' },

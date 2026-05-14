@@ -184,6 +184,44 @@ export default function RegistrationForm() {
                   </div>
 
                   <div>
+                    <label htmlFor="brunch" className="label-base">
+                      Elegí tu brunch *
+                    </label>
+                    <p className="mb-3 text-xs leading-relaxed text-charcoal/60">
+                      {form.brunchIntro}
+                    </p>
+                    <div className="space-y-3">
+                      {form.brunchOptions.map((opt) => (
+                        <label
+                          key={opt.value}
+                          htmlFor={`brunch-${opt.value}`}
+                          className="flex cursor-pointer items-start gap-3 rounded-2xl border border-charcoal/10 bg-white/60 p-4 transition-colors hover:border-wine/40 has-[:checked]:border-wine has-[:checked]:bg-pink/30"
+                        >
+                          <input
+                            id={`brunch-${opt.value}`}
+                            type="radio"
+                            name="brunch"
+                            value={opt.title}
+                            required
+                            className="mt-1 h-4 w-4 accent-wine"
+                          />
+                          <span className="flex-1">
+                            <span className="block text-sm font-semibold text-wine">
+                              {opt.title}
+                              <span className="ml-2 text-xs font-medium uppercase tracking-[0.15em] text-orange">
+                                {opt.tagline}
+                              </span>
+                            </span>
+                            <span className="mt-1 block text-sm leading-relaxed text-charcoal/75">
+                              {opt.description}
+                            </span>
+                          </span>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
                     <label htmlFor="lesiones" className="label-base">
                       ¿Tenés alguna lesión o condición que debamos conocer?
                     </label>
