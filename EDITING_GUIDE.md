@@ -161,7 +161,44 @@ Vercel detecta el push y publica los cambios en 1-2 minutos automáticamente.
 
 ---
 
-## 10. Cosas que NO se deben editar sin avisar
+## 10. Hub privado de fundadoras (`/admin`)
+
+Espacio privado solo para ustedes en **`sculptsocietycr.com/admin`**. Centro de mando del evento — toda la información en un solo lugar, sin necesidad de abrir Drive ni Sheets.
+
+### Setup en producción (una sola vez)
+
+La activación en producción requiere 3 pasos rápidos en Vercel + Formspree. Ver guía dedicada: **[HUB_SETUP.md](./HUB_SETUP.md)**.
+
+### Cómo entrar (una vez activado)
+
+1. Abrí: `sculptsocietycr.com/admin`
+2. Ingresá la contraseña (definida en la variable de entorno `ADMIN_PASSWORD` de Vercel — no en código).
+3. Quedás logueada hasta que le des "Salir".
+
+### Qué incluye
+
+| Tab | Qué hace |
+|---|---|
+| **Resumen** | Countdown + dashboard financiero (inscritas, pagos confirmados, ingresos, gastos, balance) |
+| **Inscripciones** | Tabla con todas las inscritas. Cada inscripción del formulario público entra automáticamente. CRUD completo: agregar, editar, marcar pagada, agregar notas, eliminar. |
+| **Gastos** | Registro de cada gasto del evento. Categorías, fechas, "ya pagado", filtros, totales por categoría. |
+| **Proveedores** | Tarjetas con contactos: catering, fotógrafa, espacio, etc. Confirmar contratos. |
+| **Checklist** | Logística del día (editable, se guarda en el dispositivo). |
+| **Referencia** | Info de pago, agenda y opciones de brunch listas para consultar. |
+| **Notas** | Bitácora libre por dispositivo. |
+
+### Cómo se relaciona con el formulario público
+
+- El formulario público (`/#inscripcion`) sigue mandando las inscripciones a **Formspree**.
+- Formspree dispara un webhook al hub → la inscripción aparece sola en el tab **Inscripciones**.
+- Ustedes marcan "Pagada" con un clic cuando llega el SINPE, agregan notas, etc.
+- Si alguien se inscribe por WhatsApp en vez del formulario, usen "+ Agregar inscripción" en el hub.
+
+Ver [HUB_SETUP.md](./HUB_SETUP.md) para configurar el webhook de Formspree.
+
+---
+
+## 11. Cosas que NO se deben editar sin avisar
 
 - Los archivos en `src/components/` (lógica de la página).
 - Los colores oficiales en `tailwind.config.js`.
