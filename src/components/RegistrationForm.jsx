@@ -13,12 +13,26 @@ export default function RegistrationForm() {
 
     const formData = new FormData(e.target);
 
+    // En paralelo: (1) Formspree para email a las fundadoras,
+    // (2) hub privado (Vercel) para tracking interno.
+    const hubPayload = Object.fromEntries(formData.entries());
+
+    const formspreePromise = fetch(form.endpoint, {
+      method: 'POST',
+      body: formData,
+      headers: { Accept: 'application/json' },
+    });
+
+    // No bloqueamos el éxito del usuario si el hub falla por algún motivo —
+    // Formspree es el canal autoritativo para confirmar la inscripción.
+    const hubPromise = fetch('/api/inscripciones/webhook', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(hubPayload),
+    }).catch(() => null);
+
     try {
-      const res = await fetch(form.endpoint, {
-        method: 'POST',
-        body: formData,
-        headers: { Accept: 'application/json' },
-      });
+      const [res] = await Promise.all([formspreePromise, hubPromise]);
 
       if (res.ok) {
         setStatus('success');

@@ -27,40 +27,31 @@ Vercel cerró su producto "KV" propio y migró todo a [Upstash Redis](https://up
 
 ---
 
-## Paso 2 · Configurar las variables de entorno del hub (~2 min)
+## Paso 2 · Configurar la contraseña del hub (~1 min)
 
 En el mismo panel del proyecto en Vercel:
 
 1. Andá a **Settings** → **Environment Variables**.
-2. Agregá **2 variables nuevas**:
+2. Agregá UNA variable:
 
-| Nombre | Valor | Notas |
-|---|---|---|
-| `ADMIN_PASSWORD` | La contraseña real del hub (ej. `algoQueSoloLasTresSepan2026`) | Cambien esto. **No usen `sparkle2026` en producción.** |
-| `FORMSPREE_WEBHOOK_SECRET` | Una cadena larga aleatoria (ej. 30+ caracteres random) | Sirve para que solo Formspree pueda escribir al webhook. Generen una en [random.org](https://www.random.org/strings) o tirando un `openssl rand -hex 16` en la terminal. |
+| Key | Value |
+|---|---|
+| `ADMIN_PASSWORD` | La contraseña real del hub (ej. `algoQueSoloLasTresSepan2026`). **Cambien `sparkle2026` por algo único.** |
 
-Aplicarlas a los environments: **Production**, **Preview**, **Development** (los 3).
-
-3. Después de guardarlas, **redeploy** el proyecto (en Vercel: Deployments → último deploy → menú "..." → Redeploy). Esto asegura que las env vars queden activas.
+3. Aplicarla a: **Production**, **Preview**, **Development**.
+4. Guardar → **Redeploy** desde Deployments → último deploy → "..." → Redeploy.
 
 ---
 
-## Paso 3 · Conectar el webhook de Formspree (~3 min)
+## Paso 3 · Conectar Formspree → hub (¡automático! ya está hecho en el código)
 
-Para que cada inscripción del formulario público aparezca automáticamente en el hub:
+**No necesitan hacer nada acá.** El formulario público (`/#inscripcion`) ya postea en paralelo a Formspree (para el email a `sculptsocietycr@gmail.com`) Y al hub privado (para que aparezca solo en `/admin`).
 
-1. Entrá a [formspree.io](https://formspree.io) y abrí el form **`xbdwldbr`** (Sculpt Society Inscripciones).
-2. Pestaña **Plugins** (a la izquierda).
-3. Clic en **"Add Plugin"** → **"Webhook"**.
-4. Configurar:
-   - **URL**: `https://sculptsocietycr.com/api/inscripciones/webhook?secret=PEGAR_EL_VALOR_DE_FORMSPREE_WEBHOOK_SECRET_AQUI`
-     - Reemplazá `PEGAR_EL_VALOR_DE_FORMSPREE_WEBHOOK_SECRET_AQUI` por el mismo valor que pusieron en la variable `FORMSPREE_WEBHOOK_SECRET` en Vercel.
-   - **Method**: `POST`
-   - **Content-Type**: `application/json` (o JSON, según el dropdown)
-5. Guardar.
-6. Hacer una inscripción de prueba en `sculptsocietycr.com/#inscripcion` para verificar que aparece sola en el hub `/admin`.
+> **¿Por qué este enfoque?** Formspree pide plan pagado ($10/mes) para activar webhooks. Como no necesitábamos pagar, en su lugar el form mismo hace doble POST. Resultado idéntico: cada inscripción genera (a) email de Formspree (b) fila en el hub.
 
-> Si Formspree pide upgrade pagado para webhooks, hay una alternativa: usar Zapier (free) — ver sección "Alternativa: Zapier" al final.
+Para probar que funciona, hagan una inscripción de prueba en `sculptsocietycr.com/#inscripcion` y verifiquen que:
+- Llega el email de Formspree a `sculptsocietycr@gmail.com`
+- Aparece en el tab **Inscripciones** del hub `/admin`
 
 ---
 

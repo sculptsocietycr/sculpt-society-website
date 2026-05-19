@@ -1,12 +1,14 @@
-// Endpoint que Formspree llama automáticamente cada vez que se envía
-// el formulario público. Configurar en Formspree:
-//   Dashboard → Forms → xbdwldbr → Plugins → Add Webhook
-//   URL: https://sculptsocietycr.com/api/inscripciones/webhook?secret=<FORMSPREE_WEBHOOK_SECRET>
+// Endpoint público que recibe inscripciones del formulario del sitio.
 //
-// Si FORMSPREE_WEBHOOK_SECRET no está configurado, el endpoint acepta
-// requests sin verificar (no recomendado en producción).
+// Flujo en producción:
+//   - El formulario del sitio público postea EN PARALELO a Formspree (para
+//     notificación por email a las fundadoras) Y acá.
+//   - Acá se guarda en Redis para que aparezca en el hub /admin.
+//
+// El endpoint NO requiere auth (es público para que el form pueda postear),
+// pero opcionalmente valida un secret si está configurado.
 
-import { handleOptions, requireWebhookSecret } from '../_lib/auth.js';
+import { handleOptions } from '../_lib/auth.js';
 import { createItem } from '../_lib/store.js';
 
 export default async function handler(req, res) {
@@ -14,15 +16,23 @@ export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Método no permitido.' });
   }
-  if (!requireWebhookSecret(req, res)) return;
 
-  // Formspree manda el cuerpo del form como JSON (si el form lo envió como JSON)
-  // o como form-encoded. Vercel parsea ambos automáticamente.
+  // Validación opcional de origen / secret. Si no está configurado se
+  // acepta cualquier POST (riesgo: spam manual al endpoint).
+  const expectedSecret = process.env.PUBLIC_FORM_SECRET;
+  if (expectedSecret) {
+    const got =
+      req.headers['x-form-secret'] ||
+      new URL(req.url || '', 'http://x').searchParams.get('secret');
+    if (got !== expectedSecret) {
+      return res.status(401).json({ error: 'Secret inválido.' });
+    }
+  }
+
   const body = req.body || {};
 
-  // Normalizamos los campos del formulario público a nuestro modelo.
   const item = {
-    source: 'formspree',
+    source: 'formulario-publico',
     nombre: body.nombre || '',
     telefono: body.telefono || '',
     email: body.email || '',
@@ -35,6 +45,11 @@ export default async function handler(req, res) {
     pagoConfirmado: false,
     notas: '',
   };
+
+  // Validación mínima: que tenga un nombre.
+  if (!item.nombre.trim()) {
+    return res.status(400).json({ error: 'Falta el nombre.' });
+  }
 
   try {
     const created = await createItem('inscripciones', item);
