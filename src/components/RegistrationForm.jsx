@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { form, nextEvent } from '../data/content';
+import Butterfly from './Butterfly.jsx';
 
 export default function RegistrationForm() {
   const [status, setStatus] = useState('idle'); // idle | submitting | success | error
@@ -40,7 +41,7 @@ export default function RegistrationForm() {
         if (typeof window !== 'undefined' && window.gtag) {
           window.gtag('event', 'inscripcion_enviada', {
             event_category: 'form',
-            event_label: 'Hannah Montana Edition',
+            event_label: 'Hannah vs Miley Edition',
           });
         }
       } else {
@@ -55,8 +56,20 @@ export default function RegistrationForm() {
   };
 
   return (
-    <section id="inscripcion" className="bg-pink/30 section-pad">
-      <div className="container-site">
+    <section
+      id="inscripcion"
+      className="relative overflow-hidden bg-gradient-y2k section-pad"
+    >
+      <span className="pointer-events-none absolute left-10 bottom-10 text-4xl text-orange floaty" style={{ animationDelay: '1s' }}>✦</span>
+
+      <Butterfly color="#E7552C" size={42} className="right-6 top-10 md:right-16 md:top-14"
+                 rotate={12} driftX={-50} driftY={-100} spin={-18} flapMs={560} />
+      <Butterfly color="#D6C774" size={28} className="left-1/3 top-6 hidden md:block"
+                 rotate={-8} driftX={40} driftY={-120} spin={18} flapMs={620} delay={0.2} flip />
+      <Butterfly color="#F4BABB" size={34} className="right-1/4 bottom-12 hidden md:block"
+                 rotate={5} driftX={-30} driftY={-80} spin={-12} flapMs={580} delay={0.4} />
+
+      <div className="container-site relative">
         <div className="grid gap-12 lg:grid-cols-12">
           {/* Left: copy + payment info */}
           <motion.div
@@ -66,20 +79,24 @@ export default function RegistrationForm() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-5"
           >
-            <p className="eyebrow mb-4">{form.eyebrow}</p>
-            <h2 className="display text-4xl text-wine md:text-5xl">{form.title}</h2>
-            <p className="mt-5 text-base leading-relaxed text-charcoal/75 md:text-lg">
+            <p className="eyebrow">{form.eyebrow}</p>
+            <h2 className="mt-4 display text-4xl text-ink md:text-5xl">
+              {form.title}
+            </h2>
+            <p className="mt-5 text-base leading-relaxed text-ink/75 md:text-lg">
               {form.subtitle}
             </p>
 
-            <div className="mt-10 rounded-2xl bg-cream p-7">
-              <p className="text-xs font-medium uppercase tracking-[0.2em] text-orange">
+            <div className="mt-10 rounded-3xl bg-white p-7 shadow-md">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-violet">
                 Método de pago
               </p>
-              <p className="mt-3 text-2xl font-semibold text-wine">{form.payment.method}</p>
-              <p className="mt-1 text-base text-charcoal">{form.payment.number}</p>
-              <p className="text-sm text-charcoal/60">A nombre de {form.payment.name}</p>
-              <p className="mt-4 border-t border-charcoal/10 pt-4 text-sm leading-relaxed text-charcoal/70">
+              <p className="mt-3 font-display text-2xl font-semibold text-ink">
+                {form.payment.method}
+              </p>
+              <p className="mt-1 text-base text-ink">{form.payment.number}</p>
+              <p className="text-sm text-ink/60">A nombre de {form.payment.name}</p>
+              <p className="mt-4 border-t border-violet/10 pt-4 text-sm leading-relaxed text-ink/70">
                 {form.payment.note}
               </p>
             </div>
@@ -102,14 +119,16 @@ export default function RegistrationForm() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="lg:col-span-7"
           >
-            <div className="rounded-3xl bg-cream p-7 md:p-10">
+            <div className="rounded-3xl bg-white p-7 shadow-lg md:p-10">
               {status === 'success' ? (
                 <div className="flex min-h-[400px] flex-col items-center justify-center text-center">
-                  <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-gold/30">
-                    <span className="text-3xl text-wine">✦</span>
+                  <div className="mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-y2k text-white">
+                    <span className="text-3xl">✦</span>
                   </div>
-                  <h3 className="display text-3xl text-wine">¡Listo!</h3>
-                  <p className="mt-4 max-w-md text-base text-charcoal/75">{form.successMessage}</p>
+                  <h3 className="display text-3xl text-ink">¡Listo, pop star!</h3>
+                  <p className="mt-4 max-w-md text-base text-ink/75">
+                    {form.successMessage}
+                  </p>
                   <button
                     type="button"
                     onClick={() => setStatus('idle')}
@@ -120,7 +139,6 @@ export default function RegistrationForm() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
-                  {/* Hidden field with event name for Formspree */}
                   <input type="hidden" name="evento" value={nextEvent.title} />
 
                   <div>
@@ -197,11 +215,37 @@ export default function RegistrationForm() {
                     </select>
                   </div>
 
+                  {/* Energía Hannah / Miley */}
+                  <div>
+                    <label className="label-base">{form.energy.label}</label>
+                    <p className="mb-3 text-xs leading-relaxed text-ink/60">
+                      {form.energy.intro}
+                    </p>
+                    <div className="grid gap-2 sm:grid-cols-2">
+                      {form.energy.options.map((opt) => (
+                        <label
+                          key={opt.value}
+                          htmlFor={`energy-${opt.value}`}
+                          className="flex cursor-pointer items-center gap-3 rounded-2xl border border-violet/15 bg-white px-4 py-3 transition-colors hover:border-violet/40 has-[:checked]:border-violet has-[:checked]:bg-candy/40"
+                        >
+                          <input
+                            id={`energy-${opt.value}`}
+                            type="radio"
+                            name="energia"
+                            value={opt.label}
+                            className="h-4 w-4 accent-violet"
+                          />
+                          <span className="text-sm font-medium text-ink">{opt.label}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+
                   <div>
                     <label htmlFor="brunch" className="label-base">
                       Elegí tu brunch *
                     </label>
-                    <p className="mb-3 text-xs leading-relaxed text-charcoal/60">
+                    <p className="mb-3 text-xs leading-relaxed text-ink/60">
                       {form.brunchIntro}
                     </p>
                     <div className="space-y-3">
@@ -209,7 +253,7 @@ export default function RegistrationForm() {
                         <label
                           key={opt.value}
                           htmlFor={`brunch-${opt.value}`}
-                          className="flex cursor-pointer items-start gap-3 rounded-2xl border border-charcoal/10 bg-white/60 p-4 transition-colors hover:border-wine/40 has-[:checked]:border-wine has-[:checked]:bg-pink/30"
+                          className="flex cursor-pointer items-start gap-3 rounded-2xl border border-violet/15 bg-white p-4 transition-colors hover:border-violet/40 has-[:checked]:border-violet has-[:checked]:bg-candy/40"
                         >
                           <input
                             id={`brunch-${opt.value}`}
@@ -217,16 +261,16 @@ export default function RegistrationForm() {
                             name="brunch"
                             value={opt.title}
                             required
-                            className="mt-1 h-4 w-4 accent-wine"
+                            className="mt-1 h-4 w-4 accent-violet"
                           />
                           <span className="flex-1">
-                            <span className="block text-sm font-semibold text-wine">
+                            <span className="block text-sm font-semibold text-ink">
                               {opt.title}
-                              <span className="ml-2 text-xs font-medium uppercase tracking-[0.15em] text-orange">
+                              <span className="ml-2 text-[10px] font-semibold uppercase tracking-[0.15em] text-violet">
                                 {opt.tagline}
                               </span>
                             </span>
-                            <span className="mt-1 block text-sm leading-relaxed text-charcoal/75">
+                            <span className="mt-1 block text-sm leading-relaxed text-ink/75">
                               {opt.description}
                             </span>
                           </span>
@@ -276,7 +320,7 @@ export default function RegistrationForm() {
                   </div>
 
                   {status === 'error' && (
-                    <p className="rounded-xl bg-orange/10 px-4 py-3 text-sm text-orange">
+                    <p className="rounded-xl bg-bubblegum/10 px-4 py-3 text-sm text-bubblegum">
                       {errorMsg}
                     </p>
                   )}
@@ -286,10 +330,10 @@ export default function RegistrationForm() {
                     disabled={status === 'submitting'}
                     className="btn-primary w-full disabled:cursor-not-allowed disabled:opacity-60"
                   >
-                    {status === 'submitting' ? 'Enviando…' : 'Enviar inscripción'}
+                    {status === 'submitting' ? 'Enviando…' : '✦ Apartar mi spot'}
                   </button>
 
-                  <p className="text-center text-xs text-charcoal/50">
+                  <p className="text-center text-xs text-ink/50">
                     Al enviar este formulario aceptás que te contactemos por WhatsApp para confirmar tu cupo.
                   </p>
                 </form>

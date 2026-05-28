@@ -1,8 +1,6 @@
 // =====================================================
-// SCULPT SOCIETY — CONTENIDO CENTRAL
-// EDITA AQUÍ todo el contenido visible del sitio.
-// Cada vez que modifiques este archivo, hacé commit y push
-// para que Vercel publique los cambios automáticamente.
+// SCULPT SOCIETY — HANNAH VS MILEY EDITION
+// Todo el copy visible del sitio vive acá.
 // =====================================================
 
 import logoPrimary from '../assets/logos/logo-primary.jpeg';
@@ -15,9 +13,7 @@ import logoCreamOnPink from '../assets/logos/logo-cream-on-pink.jpg';
 import logoWineOnPink from '../assets/logos/logo-wine-on-pink.jpg';
 import logoWineOnGold from '../assets/logos/logo-wine-on-gold.jpg';
 
-// Única foto personal usada en el sitio (sección Sobre nosotras, espejada)
 import aboutImg from '../assets/images/about.jpg';
-// Imagen del Bedazzling Bar (cepillos personalizados con cristales)
 import bedazzlingBarImg from '../assets/images/bedazzling-bar.jpg';
 
 // -------------------------------
@@ -25,7 +21,8 @@ import bedazzlingBarImg from '../assets/images/bedazzling-bar.jpg';
 // -------------------------------
 export const brand = {
   name: 'Sculpt Society',
-  tagline: 'Comunidad wellness para mujeres',
+  edition: 'Hannah vs Miley Edition',
+  tagline: 'Pop star morning · 13 de junio',
   instagram: '@sculptsocietycr',
   instagramUrl: 'https://instagram.com/sculptsocietycr',
   domain: 'sculptsocietycr.com',
@@ -37,199 +34,371 @@ export const brand = {
 };
 
 export const logos = {
-  primary: logoPrimary,           // pink letters / wine bg (oficial)
-  vector: logoVector,             // versión vector
-  wineOnCream: logoWineOnCream,   // letras vino / fondo crema (header sobre cream)
-  creamOnWine: logoCreamOnWine,   // letras crema / fondo vino (hero secundario)
-  creamOnCharcoal: logoCreamOnCharcoal, // letras crema / fondo carbón (footer dark)
-  goldOnWine: logoGoldOnWine,     // letras dorado / fondo vino (premium accent)
-  creamOnPink: logoCreamOnPink,   // letras crema / fondo rosado (bedazzling bar)
-  wineOnPink: logoWineOnPink,     // letras vino / fondo rosado (community accent)
-  wineOnGold: logoWineOnGold,     // letras vino / fondo dorado (gold accent)
+  primary: logoPrimary,
+  vector: logoVector,
+  wineOnCream: logoWineOnCream,
+  creamOnWine: logoCreamOnWine,
+  creamOnCharcoal: logoCreamOnCharcoal,
+  goldOnWine: logoGoldOnWine,
+  creamOnPink: logoCreamOnPink,
+  wineOnPink: logoWineOnPink,
+  wineOnGold: logoWineOnGold,
 };
 
 export const images = {
-  about: aboutImg, // se renderiza espejada vía CSS
+  about: aboutImg,
   bedazzlingBar: bedazzlingBarImg,
 };
 
-export const colors = {
-  orange: '#E7552C',
-  wine: '#811D16',
-  pink: '#F4BABB',
-  cream: '#F9F5ED',
-  charcoal: '#373330',
-  gold: '#D6C774',
-};
-
 // -------------------------------
-// NAVEGACIÓN
+// NAVEGACIÓN — enfocada en el evento
 // -------------------------------
 export const nav = {
   links: [
-    { label: 'Inicio', href: '#inicio' },
-    { label: 'Sobre nosotras', href: '#sobre' },
-    { label: 'Comunidad', href: '#comunidad' },
-    { label: 'Eventos', href: '#eventos' },
-    { label: 'Próximo evento', href: '#proximo-evento' },
+    { label: 'El evento', href: '#evento' },
+    { label: 'Hannah vs Miley', href: '#concepto' },
+    { label: 'Qué incluye', href: '#experiencia' },
+    { label: 'Dress code', href: '#dresscode' },
+    { label: 'Detalles', href: '#detalles' },
+    { label: 'Fundadoras', href: '#fundadoras' },
     { label: 'FAQ', href: '#faq' },
   ],
-  cta: { label: 'Inscribirme', href: '#inscripcion' },
+  cta: { label: 'Reservar mi spot', href: '#inscripcion' },
 };
 
 // -------------------------------
 // HERO
 // -------------------------------
 export const hero = {
-  eyebrow: 'Comunidad wellness · Costa Rica',
-  title: 'Una comunidad creada para moverte, conectar y brillar.',
+  eyebrow: '✦ Sculpt Society presenta',
+  edition: 'Hannah vs Miley Edition',
+  titleLines: ['Tu pop star morning', 'empieza acá.'],
   subtitle:
-    'Sculpt Society es una comunidad wellness para mujeres que quieren cuidarse, hacer amigas nuevas y vivir experiencias que se sienten tan bien como se ven.',
-  ctaPrimary: { label: 'Inscribirme al próximo evento', href: '#proximo-evento' },
-  ctaSecondary: { label: 'Conocer Sculpt Society', href: '#sobre' },
-  // Palabras editoriales para la composición tipográfica del hero
-  manifestoWords: ['Wellness', 'Movimiento', 'Amistad', 'Brillar'],
-};
-
-// -------------------------------
-// SOBRE SCULPT SOCIETY (única sección con foto)
-// -------------------------------
-export const about = {
-  eyebrow: 'Sobre nosotras',
-  title: 'Wellness que se disfruta más cuando se comparte.',
-  body: [
-    'Sculpt Society nació de una amistad y de una idea simple: el wellness se disfruta más cuando se comparte. Somos tres amigas unidas por la pasión por el movimiento, el bienestar y las experiencias bonitas.',
-    'Creamos espacios para mujeres que quieren moverse, conocer personas nuevas, disfrutar momentos lindos y sentirse parte de una comunidad con alegría, intención y mucho glow.',
+    'Una mañana para moverte, brillar y conectar — con la nostalgia Y2K de los 2000s, brunch, brillos y la energía pop star que más vibre con vos ese día.',
+  date: '13 de junio · 2026',
+  time: '10:00 a.m.',
+  location: 'Paloma Studios · Escazú',
+  price: '₡20.000',
+  ctaPrimary: { label: 'Reservar mi spot', href: '#inscripcion' },
+  ctaSecondary: { label: 'Quiero ver más', href: '#concepto' },
+  marquee: [
+    'Yoga Sculpt',
+    'Brunch',
+    'Bedazzling Bar',
+    'Pop star morning',
+    'Y2K nostalgia',
+    'Glow energy',
+    'Hannah ✦ Miley',
   ],
 };
 
 // -------------------------------
-// FUNDADORAS
+// CONCEPTO — Hannah vs Miley
+// -------------------------------
+export const concept = {
+  eyebrow: 'El concepto',
+  title: 'Dos energías. Una misma mañana.',
+  intro:
+    'Esto no es cosplay. Es jugar con la dualidad: lo dulce y lo bold, lo girly y lo libre, lo nostálgico y lo presente. Vení con la energía que querás — o con las dos.',
+  sides: [
+    {
+      key: 'hannah',
+      name: 'Hannah',
+      tagline: 'Sweet girl energy',
+      vibe: 'Rosa, brillos, butterfly clips, lip gloss, baby tee, denim mini, pop star de Disney Channel.',
+      words: ['Dulce', 'Nostálgica', 'Girly', 'Playful', 'Pop star'],
+    },
+    {
+      key: 'miley',
+      name: 'Miley',
+      tagline: 'Bold girl energy',
+      vibe: 'Lila, plateado, sunglasses, denim oversize, main character, free spirit, era “Party in the USA”.',
+      words: ['Bold', 'Libre', 'Cool', 'Segura', 'Main character'],
+    },
+  ],
+  vs: 'vs',
+  closing:
+    'El evento invita a venir como te haga sentir más vos: Hannah, Miley o la mezcla perfecta de las dos.',
+};
+
+// -------------------------------
+// FUNDADORAS — quiénes están detrás del evento
+// Las imágenes viven en /public/founders/ así basta con
+// arrastrar los archivos jpg para que aparezcan.
 // -------------------------------
 export const founders = {
   eyebrow: 'Las fundadoras',
-  title: 'Tres amigas, una misma visión.',
-  description:
-    'Tres amigas unidas por la pasión por el wellness, las experiencias bonitas y la felicidad compartida.',
+  title: 'Tres amigas detrás de esta edición.',
+  intro:
+    'Sculpt Society nace de una amistad. Esta es la primera edición temática que armamos las tres — pensada con cariño, mucha nostalgia y ganas de hacer un sábado distinto.',
   list: [
-    { name: 'Diana Troper', initial: 'D', image: null, role: 'Co-fundadora · Instructora' },
-    { name: 'Elvira Fernández', initial: 'E', image: null, role: 'Co-fundadora' },
-    { name: 'Karina Bogantes', initial: 'K', image: null, role: 'Co-fundadora' },
+    {
+      key: 'diana',
+      name: 'Diana',
+      role: 'Instructora · Yoga Sculpt',
+      bio: 'Te guía la clase. Energía cálida, secuencias para todos los niveles y la calma justa para empezar la mañana en tu eje.',
+      image: '/founders/diana.jpg',
+      vibe: 'hannah',
+      sticker: '✦',
+    },
+    {
+      key: 'karina',
+      name: 'Karina',
+      role: 'Logística · Producción',
+      bio: 'El cerebro detrás de que todo fluya — agenda, espacios, brunch, sorpresas. Si algo sale lindo, fue ella.',
+      image: '/founders/karina.jpg',
+      vibe: 'miley',
+      sticker: '♡',
+    },
+    {
+      key: 'elvira',
+      name: 'Elvira',
+      role: 'Dirección creativa',
+      bio: 'La mente del concepto, el mood y el dress code. Esta edición Hannah vs Miley salió de muchas tardes hablando de Disney Channel.',
+      image: '/founders/elvira.jpg',
+      vibe: 'hannah',
+      sticker: '✧',
+    },
   ],
 };
 
 // -------------------------------
-// PILARES
+// EXPERIENCIA — Qué vas a vivir
 // -------------------------------
-export const beliefs = {
-  eyebrow: 'Lo que creemos',
-  title: 'Los pilares que nos mueven.',
-  list: [
-    { title: 'Movimiento', description: 'El cuerpo se siente mejor cuando se mueve con intención y alegría.' },
-    { title: 'Amistad', description: 'Las mejores conversaciones nacen entre clases y mimosas.' },
-    { title: 'Felicidad', description: 'Salir de cada experiencia con una energía más bonita.' },
-    { title: 'Wellness', description: 'Cuidarnos sin presión, sin culpa y con mucha calma.' },
-    { title: 'Comunidad', description: 'Un espacio seguro para encontrarnos, aunque vengas sola.' },
-    { title: 'Experiencias bonitas', description: 'Detalles curados con cariño que se sienten y se recuerdan.' },
-  ],
-};
-
-// -------------------------------
-// COMUNIDAD
-// -------------------------------
-export const community = {
-  eyebrow: 'Nuestra comunidad',
-  title: 'Para mujeres que quieren más.',
-  bullets: [
-    'Hacer amigas nuevas',
-    'Moverse de forma feliz',
-    'Ir a eventos lindos aunque vayan solas',
-    'Compartir un buen brunch',
-    'Vivir experiencias curadas con cariño',
-    'Sentirse parte de algo especial',
-  ],
-  cta: { label: 'Quiero ser parte', href: '#inscripcion' },
-};
-
-// -------------------------------
-// PRÓXIMO EVENTO
-// -------------------------------
-export const nextEvent = {
-  eyebrow: 'Próximo evento',
-  title: 'Sculpt Society — Hannah Montana Edition',
+export const experience = {
+  eyebrow: 'Qué vas a vivir',
+  title: 'Una mañana pop star, paso a paso.',
   description:
-    'Nuestra próxima edición mezcla movimiento, brunch, comunidad, sorpresas y una vibra divertida con guiños a los 2000s. Una mañana para moverte, conectar, brillar y vivir lo mejor de ambos mundos.',
-  date: '13 de junio',
-  time: '10:00 a.m.',
-  location: 'Paloma Studios, Escazú, Costa Rica',
-  price: '₡20.000',
-  spots: 'Cupos limitados',
-  imagePlaceholderText: 'Foto próximamente',
-  ctaPrimary: { label: 'Inscribirme ahora', href: '#inscripcion' },
-  includes: [
-    { title: 'Yoga Sculpt Class', description: 'Clase guiada para moverte, sudar y soltar — sin presión.' },
-    { title: 'Brunch', description: 'Una mesa puesta con cariño para compartir entre amigas.' },
-    { title: 'Bedazzling Bar', description: 'Personalizá un detalle único y llevátelo de recuerdo.' },
-    { title: 'Sorpresitas', description: 'Detalles curados que hacen la mañana inolvidable.' },
-    { title: 'Comunidad', description: 'Conocé mujeres lindas en un espacio seguro y cálido.' },
+    'Tres horas curadas para moverte, comer rico, brillar y salir con caras nuevas en tu cámara digital.',
+  items: [
+    {
+      icon: '✦',
+      title: 'Yoga Sculpt',
+      description: 'Una clase guiada para activar tu energía, soltar y moverte sin presión. Apta para todos los niveles.',
+    },
+    {
+      icon: '✿',
+      title: 'Brunch',
+      description: 'Una mesa puesta con cariño para compartir, conectar y elegir el plato que más te llame ese día.',
+    },
+    {
+      icon: '✧',
+      title: 'Bedazzling Bar',
+      description: 'Personalizá un detalle con cristales, brillos y charms para llevarte un recuerdo único de esta edición.',
+    },
+    {
+      icon: '♡',
+      title: 'Sorpresas temáticas',
+      description: 'Detalles curados al estilo Y2K — pensados para hacerte sonreír y para tu feed.',
+    },
+    {
+      icon: '☼',
+      title: 'Música y mood',
+      description: 'Playlist 2000s pop nostalgia: Hannah, Miley, Britney, Avril, Disney soundtracks y guilty pleasures.',
+    },
+    {
+      icon: '✦',
+      title: 'Comunidad',
+      description: 'Un espacio para venir sola, con amigas o conocer mujeres nuevas. Sin presión, sin grupitos.',
+    },
   ],
 };
 
 export const agenda = {
-  eyebrow: 'Agenda tentativa',
-  title: 'Cómo se vive la mañana.',
+  eyebrow: 'Tu mañana',
+  title: 'Cómo se vive el sábado.',
   note: 'La agenda puede ajustarse el día del evento.',
   list: [
-    { time: '10:00 a.m.', activity: 'Bienvenida y check-in' },
-    { time: '10:15 a.m.', activity: 'Clase de Yoga Sculpt' },
-    { time: '11:15 a.m.', activity: 'Brunch' },
+    { time: '10:00 a.m.', activity: 'Bienvenida + check-in pop star' },
+    { time: '10:15 a.m.', activity: 'Yoga Sculpt class' },
+    { time: '11:15 a.m.', activity: 'Brunch y mingle' },
     { time: '11:45 a.m.', activity: 'Bedazzling Bar + sorpresitas' },
-    { time: '12:30 p.m.', activity: 'Cierre y fotos' },
+    { time: '12:30 p.m.', activity: 'Foto grupal + cierre' },
   ],
 };
 
+// -------------------------------
+// PARA QUIÉN ES — objeciones
+// -------------------------------
+export const forWho = {
+  eyebrow: 'Para quién es',
+  title: 'Es para vos si…',
+  intro:
+    'No importa si nunca has hecho yoga, si no conocés a nadie o si llegás con tu mejor amiga. Este espacio se diseñó para que llegues como sos y la pases bien.',
+  bullets: [
+    {
+      icon: '♡',
+      title: 'Podés venir sola',
+      description: 'La mayoría llega sola. Es un espacio cálido pensado para conocer mujeres nuevas sin awkwardness.',
+    },
+    {
+      icon: '✦',
+      title: 'No necesitás experiencia',
+      description: 'La clase de Yoga Sculpt está pensada para todos los niveles. Cero presión, cero competencia.',
+    },
+    {
+      icon: '✿',
+      title: 'No tenés que estar “fit”',
+      description: 'Tu cuerpo está perfecto para venir. Venimos a movernos rico, no a performar.',
+    },
+    {
+      icon: '✧',
+      title: 'No tenés que conocer a nadie',
+      description: 'Hacemos rompehielos suaves y la mesa de brunch está pensada para mezclarse natural.',
+    },
+    {
+      icon: '☼',
+      title: 'Podés jugar con el dress code',
+      description: 'Brillos, denim, rosa, lila, butterfly clips… o tu outfit favorito. Lo que te haga sentir cute.',
+    },
+    {
+      icon: '★',
+      title: 'Solo querés algo lindo un sábado',
+      description: 'Si querés salir de la rutina y vivir una mañana diferente en Costa Rica, este es tu plan.',
+    },
+  ],
+};
+
+// -------------------------------
+// DRESS CODE / VIBE
+// -------------------------------
+export const dressCode = {
+  eyebrow: 'Dress code',
+  title: 'El mood: pop star off-duty.',
+  intro:
+    'El dress code es opcional pero recomendado. Si querés jugar con el concepto, esta es la guía para tu outfit.',
+  pills: [
+    'Y2K pop star',
+    'Brillos',
+    'Denim',
+    'Baby tees',
+    'Rosa · lila · plateado',
+    'Butterfly clips',
+    'Mini accesorios',
+    'Lip gloss energy',
+    'Charms',
+    'Cámara digital',
+  ],
+  cards: [
+    {
+      key: 'hannah',
+      title: 'Si elegís Hannah',
+      list: [
+        'Rosa, candy pink, lavanda',
+        'Baby tee + denim mini',
+        'Butterfly clips · scrunchies',
+        'Brillos, charms, hearts',
+        'Lip gloss + blush rosa',
+      ],
+    },
+    {
+      key: 'miley',
+      title: 'Si elegís Miley',
+      list: [
+        'Lila, plateado, blanco',
+        'Denim oversize + crop',
+        'Sunglasses Y2K · chunky belt',
+        'Plateado, chrome, rhinestones',
+        'Bold lip + cat eye',
+      ],
+    },
+  ],
+  note:
+    'Si no querés tematizar, llegá como te haga sentir bien. Lo importante es que llegués cómoda para moverte.',
+};
+
+// -------------------------------
+// PRÓXIMO EVENTO — datos clave
+// -------------------------------
+export const nextEvent = {
+  eyebrow: 'El evento',
+  edition: 'Hannah vs Miley Edition',
+  title: 'Sculpt Society: Hannah vs Miley Edition',
+  shortTitle: 'Hannah vs Miley Edition',
+  description:
+    'La primera gran experiencia temática de Sculpt Society. Una mañana inspirada en la nostalgia Y2K, los 2000s pop, la amistad y el glow-up.',
+  date: '13 de junio, 2026',
+  dateShort: '13.06.26',
+  day: 'Sábado',
+  time: '10:00 a.m. – 12:30 p.m.',
+  location: 'Paloma Studios, Escazú, Costa Rica',
+  price: '₡20.000',
+  spots: 'Cupos limitados',
+  ctaPrimary: { label: 'Reservar mi spot', href: '#inscripcion' },
+};
+
+// -------------------------------
+// DETALLES — qué llevar / cómo reservar
+// -------------------------------
+export const details = {
+  eyebrow: 'Detalles',
+  title: 'Todo lo que necesitás saber.',
+  rows: [
+    { label: 'Fecha', value: 'Sábado 13 de junio, 2026' },
+    { label: 'Hora', value: '10:00 a.m. – 12:30 p.m.' },
+    { label: 'Lugar', value: 'Paloma Studios, Escazú' },
+    { label: 'Inversión', value: '₡20.000' },
+    { label: 'Cupos', value: 'Limitados — confirmá pronto' },
+  ],
+  includes: {
+    title: 'Qué incluye tu cupo',
+    items: [
+      'Clase de Yoga Sculpt',
+      'Brunch (vos elegís el plato)',
+      'Acceso al Bedazzling Bar',
+      'Sorpresas temáticas Y2K',
+      'Playlist y mood pop star',
+      'La experiencia completa de comunidad',
+    ],
+  },
+  bring: {
+    title: 'Qué llevar',
+    items: [
+      'Ropa cómoda para moverte (con brillos welcome)',
+      'Mat de yoga si tenés (hay disponibles)',
+      'Botella de agua',
+      'Cámara digital o film camera (opcional pero ✨)',
+      'Tu mejor energía Hannah o Miley',
+    ],
+  },
+  reserve: {
+    title: 'Cómo reservar',
+    steps: [
+      'Completá el formulario abajo o escribinos por WhatsApp.',
+      'Hacé el SINPE de ₡20.000 al +506 7010 1783 a nombre de Diana Troper.',
+      'Adjuntá el comprobante en el formulario y listo.',
+      'Te confirmamos tu cupo por WhatsApp en menos de 24 horas.',
+    ],
+  },
+};
+
+// -------------------------------
+// BEDAZZLING BAR — destacado
+// -------------------------------
 export const bedazzlingBar = {
   eyebrow: 'Bedazzling Bar',
   title: 'Tu sparkle moment.',
-  description: 'Un espacio para personalizar, brillar y llevarte un detalle único de esta edición.',
-  body: 'Una activación pensada para que crees algo tuyo: cristales, brillos y detalles que reflejan tu vibra. Fotogénico, divertido y con mucho glow.',
-};
-
-// -------------------------------
-// EVENTOS FUTUROS — sin fotos, treatment gráfico (símbolo + color)
-// -------------------------------
-export const futureEvents = {
-  eyebrow: 'Eventos Sculpt Society',
-  title: 'Esto es solo el comienzo.',
-  description:
-    'Sculpt Society es una comunidad continua. Estamos curando experiencias para todo el año.',
-  list: [
-    { title: 'Yoga Sculpt', description: 'Clases temáticas para moverte feliz.', symbol: '◇', tone: 'pink' },
-    { title: 'Brunch experiences', description: 'Mesas largas para compartir entre amigas.', symbol: '✿', tone: 'gold' },
-    { title: 'Bedazzling Bar', description: 'Activaciones creativas y fotogénicas.', symbol: '✦', tone: 'wine' },
-    { title: 'Activaciones con marcas', description: 'Colaboraciones con marcas wellness.', symbol: '◯', tone: 'pink' },
-    { title: 'Wellness mornings', description: 'Mañanas de movimiento, comida y calma.', symbol: '☼', tone: 'gold' },
-    { title: 'Experiencias temáticas', description: 'Ediciones especiales con vibra única.', symbol: '❋', tone: 'wine' },
-  ],
+  description: 'Un espacio para crear algo brillante, fotogénico y muy tuyo.',
+  body: 'Cristales, charms, rhinestones, perlas y mucho glow para que personalices un detalle que te llevás de recuerdo. Hannah-coded, Miley-coded o las dos.',
 };
 
 // -------------------------------
 // FORMULARIO DE INSCRIPCIÓN
 // -------------------------------
 export const form = {
-  eyebrow: 'Reservá tu lugar',
-  title: 'Inscribite a la Hannah Montana Edition.',
+  eyebrow: 'Reservá tu spot',
+  title: 'Apartá tu cupo en la Hannah vs Miley Edition.',
   subtitle:
-    'Completá el formulario y te confirmamos tu cupo por WhatsApp en menos de 24 horas.',
+    'Completá el formulario y te confirmamos por WhatsApp en menos de 24 horas. Cupos limitados — no te quedés afuera del rewind.',
   endpoint: 'https://formspree.io/f/xbdwldbr',
   payment: {
     method: 'SINPE Móvil',
     number: '+506 7010 1783',
     name: 'Diana Troper',
-    note: 'Realizá el SINPE por ₡20.000 a nombre de Diana Troper y adjuntá el detalle del comprobante en el formulario. Tu cupo se confirma una vez verificamos el pago.',
+    note: 'Hacé el SINPE por ₡20.000 a nombre de Diana Troper y adjuntá el detalle del comprobante en el formulario. Tu cupo se confirma una vez verificamos el pago.',
   },
   brunchIntro:
-    'Elegí 1 opción de brunch para el evento. Todo con ingredientes frescos y de alta calidad, en alianza con Paloma Studio.',
+    'Elegí 1 opción de brunch. Todo con ingredientes frescos y de alta calidad, en alianza con Paloma Studios.',
   brunchOptions: [
     {
       value: 'puravida-pinto',
@@ -258,16 +427,26 @@ export const form = {
     {
       value: 'smoothie-bowl',
       title: 'Opción 5 · Smoothie Bowl',
-      tagline: 'Pretty and good for you',
+      tagline: 'Pretty & good for you',
       description: 'Smoothie aura de frutos rojos, proteína, miel y yogurt, terminado con frutas de temporada, granola y mantequilla de maní.',
     },
   ],
+  energy: {
+    label: '¿Con qué energía venís?',
+    intro: 'Solo para saber el mood de la mañana — no te obliga a nada.',
+    options: [
+      { value: 'hannah', label: 'Hannah · sweet girl' },
+      { value: 'miley', label: 'Miley · bold girl' },
+      { value: 'mix', label: 'Mix · las dos' },
+      { value: 'undecided', label: 'Decido el día' },
+    ],
+  },
   whatsappFallback: {
     label: 'Prefiero inscribirme por WhatsApp',
-    href: 'https://wa.me/50670101783?text=Hola%2C%20quiero%20inscribirme%20a%20Sculpt%20Society%20%E2%80%94%20Hannah%20Montana%20Edition',
+    href: 'https://wa.me/50670101783?text=Hola%2C%20quiero%20reservar%20mi%20spot%20en%20Sculpt%20Society%20%E2%80%94%20Hannah%20vs%20Miley%20Edition',
   },
   successMessage:
-    '¡Recibimos tu inscripción! Te contactamos por WhatsApp en menos de 24 horas para confirmar tu cupo.',
+    '¡Recibimos tu inscripción! Te escribimos por WhatsApp en menos de 24 horas para confirmar tu spot. Get ready para el 13 de junio ✦',
   errorMessage:
     'Hubo un problema enviando el formulario. Probá de nuevo o escribinos directo por WhatsApp.',
 };
@@ -277,42 +456,67 @@ export const form = {
 // -------------------------------
 export const faq = {
   eyebrow: 'Preguntas frecuentes',
-  title: 'Lo que necesitás saber.',
+  title: 'Lo que probablemente te estás preguntando.',
   list: [
-    { q: '¿Necesito experiencia previa?', a: 'Para nada. La clase de Yoga Sculpt está diseñada para todos los niveles. Solo traé ganas de moverte y disfrutar.' },
-    { q: '¿Puedo ir sola?', a: '¡Claro que sí! De hecho, la mayoría de nuestras asistentes vienen solas. Es un espacio seguro y cálido pensado para conocer mujeres lindas.' },
-    { q: '¿Qué incluye el precio?', a: 'Tu cupo incluye la clase de Yoga Sculpt, el brunch, acceso al Bedazzling Bar, sorpresitas curadas y la experiencia completa de comunidad.' },
-    { q: '¿Cómo reservo mi espacio?', a: 'Completá el formulario de inscripción en esta misma página. También podés escribirnos por WhatsApp si preferís coordinar por ahí.' },
-    { q: '¿Cómo pago?', a: 'El pago se realiza por SINPE Móvil al +506 7010 1783 a nombre de Diana Troper. Adjuntá el detalle del comprobante en el formulario.' },
-    { q: '¿Dónde es el evento?', a: 'En Paloma Studios, Escazú, Costa Rica. Te enviamos la ubicación exacta por WhatsApp al confirmar tu cupo.' },
-    { q: '¿Hay cupos limitados?', a: 'Sí. Los cupos son muy limitados para mantener la experiencia íntima y bien curada. Te recomendamos reservar con tiempo.' },
-    { q: '¿Qué debo llevar?', a: 'Ropa cómoda para moverte, mat de yoga si tenés (también hay disponibles), una botella de agua y muchas ganas de pasarla bien.' },
-    { q: '¿Qué es el Bedazzling Bar?', a: 'Una activación creativa donde podés personalizar un detalle con cristales y brillos para llevarte un recuerdo único de la edición.' },
-    { q: '¿Se tomarán fotos y videos?', a: 'Sí, tendremos fotógrafa cubriendo la experiencia. Si preferís no aparecer, decinos al llegar y respetamos tu espacio.' },
+    {
+      q: '¿Puedo ir sola?',
+      a: 'Sí, y de hecho la mayoría llega sola. El evento está diseñado para que conozcas mujeres nuevas sin sentirte fuera de lugar — hacemos rompehielos suaves y la mesa de brunch se mezcla natural.',
+    },
+    {
+      q: '¿Necesito experiencia en yoga o sculpt?',
+      a: 'Para nada. La clase es para todos los niveles y la instructora va guiando opciones según cómo te sientas. Solo traé ganas de moverte.',
+    },
+    {
+      q: '¿Qué debo llevar?',
+      a: 'Ropa cómoda para moverte (con brillos welcome), botella de agua, y mat de yoga si tenés (hay disponibles en el estudio). Opcional pero divertido: tu cámara digital o film camera.',
+    },
+    {
+      q: '¿Hay dress code?',
+      a: 'Es opcional pero recomendado. La idea es jugar con el concepto Y2K / Hannah / Miley — brillos, denim, rosa, lila, plateado, baby tees, butterfly clips. Si no querés tematizar, llegá como te haga sentir bien.',
+    },
+    {
+      q: '¿Cómo reservo mi cupo?',
+      a: 'Completá el formulario en esta página o escribinos por WhatsApp. Hacé el SINPE de ₡20.000 al +506 7010 1783 a nombre de Diana Troper, adjuntá el comprobante en el formulario y te confirmamos en menos de 24 horas.',
+    },
+    {
+      q: '¿El cupo es transferible?',
+      a: 'Sí. Si por algo no podés venir, podés pasar tu cupo a una amiga. Solo avisanos por WhatsApp con su nombre, teléfono y elección de brunch.',
+    },
+    {
+      q: '¿Qué pasa si no conozco a nadie?',
+      a: 'Estás en el lugar correcto. Más de la mitad de las que vienen llegan solas. La energía del espacio es cálida, no hay grupitos cerrados y todas estamos ahí para conectar.',
+    },
+    {
+      q: '¿Dónde queda Paloma Studios?',
+      a: 'En Escazú, Costa Rica. Te enviamos la ubicación exacta por WhatsApp al confirmar tu cupo, junto con tips de parqueo.',
+    },
+    {
+      q: '¿Qué incluye el precio?',
+      a: 'Los ₡20.000 incluyen la clase de Yoga Sculpt, el brunch (vos elegís el plato), acceso al Bedazzling Bar, sorpresitas temáticas y la experiencia completa de comunidad.',
+    },
+    {
+      q: '¿Se tomarán fotos y videos?',
+      a: 'Sí, tendremos fotógrafa cubriendo la experiencia para el feed. Si preferís no aparecer, decinos al llegar y respetamos tu espacio sin problema.',
+    },
   ],
 };
 
 // -------------------------------
-// MOODBOARD — 6 vibe tiles tipográficas (sin fotos)
+// CIERRE EMOCIONAL
 // -------------------------------
-export const gallery = {
-  eyebrow: 'Moodboard',
-  title: 'La vibra Sculpt Society.',
-  note: 'Las palabras que nos mueven.',
-  items: [
-    { word: 'glow',        tone: 'pink',  symbol: '✦' },
-    { word: 'movimiento',  tone: 'wine',  symbol: '☼' },
-    { word: 'amistad',     tone: 'gold',  symbol: '✿' },
-    { word: 'ritual',      tone: 'cream', symbol: '◇' },
-    { word: 'sparkle',     tone: 'pink',  symbol: '✦' },
-    { word: 'comunidad',   tone: 'wine',  symbol: '◯' },
-  ],
+export const closing = {
+  eyebrow: 'Nos vemos en el mat',
+  bigText: 'Una mañana para moverte,',
+  bigTextItalic: 'brillar y conectar.',
+  subtitle: 'Tu pop star morning empieza el 13 de junio.',
+  cta: { label: 'Reservar mi spot', href: '#inscripcion' },
+  micro: '✦ Cupos limitados · Paloma Studios · ₡20.000',
 };
 
 // -------------------------------
 // FOOTER
 // -------------------------------
 export const footer = {
-  tagline: 'Comunidad wellness para mujeres en Costa Rica.',
-  copyright: `© ${new Date().getFullYear()} Sculpt Society. Todos los derechos reservados.`,
+  tagline: 'Sculpt Society — Comunidad wellness para mujeres en Costa Rica. Esta edición: Hannah vs Miley.',
+  copyright: `© ${new Date().getFullYear()} Sculpt Society. Made with glow desde Costa Rica.`,
 };

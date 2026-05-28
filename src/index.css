@@ -24,15 +24,26 @@ body {
 }
 
 @layer components {
+  /* CTA principal — gradient brand orange→wine */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-orange px-7 py-3.5 text-sm font-medium tracking-wide text-cream transition-all duration-300 hover:bg-wine hover:shadow-lg hover:shadow-wine/20 active:scale-[0.98];
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-orange to-wine px-7 py-3.5 text-sm font-semibold tracking-wide text-cream shadow-md shadow-wine/25 transition-all duration-300 hover:shadow-lg hover:shadow-orange/30 hover:brightness-[1.05] active:scale-[0.98];
   }
+  /* CTA secundario — outline charcoal/wine */
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border border-charcoal/20 bg-transparent px-7 py-3.5 text-sm font-medium tracking-wide text-charcoal transition-all duration-300 hover:border-charcoal hover:bg-charcoal hover:text-cream active:scale-[0.98];
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-wine/40 bg-cream/60 px-7 py-3.5 text-sm font-medium tracking-wide text-wine backdrop-blur transition-all duration-300 hover:border-wine hover:bg-wine hover:text-cream active:scale-[0.98];
   }
-  .btn-wine {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-cream px-7 py-3.5 text-sm font-medium tracking-wide text-wine transition-all duration-300 hover:bg-pink hover:shadow-lg active:scale-[0.98];
+  /* CTA sobre fondos oscuros (closing) */
+  .btn-light {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-cream px-7 py-3.5 text-sm font-semibold tracking-wide text-wine shadow-md transition-all duration-300 hover:bg-pink active:scale-[0.98];
   }
+  /* Chips Hannah / Miley (versión brand) */
+  .chip-hannah {
+    @apply inline-flex items-center gap-1.5 rounded-full bg-gradient-hannah px-3.5 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-wine shadow-sm;
+  }
+  .chip-miley {
+    @apply inline-flex items-center gap-1.5 rounded-full bg-gradient-miley px-3.5 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-cream shadow-sm;
+  }
+
   .section-pad {
     @apply px-6 py-20 md:px-10 md:py-28 lg:py-32;
   }
@@ -40,16 +51,20 @@ body {
     @apply mx-auto w-full max-w-site;
   }
   .eyebrow {
-    @apply text-xs font-medium uppercase tracking-[0.25em] text-orange;
+    @apply text-[11px] font-semibold uppercase tracking-[0.3em] text-orange;
   }
   .display {
-    @apply font-sans font-semibold leading-[1.05] tracking-tightest;
+    @apply font-display font-semibold leading-[1.02] tracking-tightest;
   }
   .input-base {
-    @apply w-full rounded-2xl border border-charcoal/15 bg-cream px-5 py-3.5 text-sm text-charcoal placeholder:text-charcoal/40 transition-colors focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20;
+    @apply w-full rounded-2xl border border-wine/15 bg-cream px-5 py-3.5 text-sm text-charcoal placeholder:text-charcoal/40 transition-colors focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20;
   }
   .label-base {
-    @apply mb-2 block text-xs font-medium uppercase tracking-wider text-charcoal/70;
+    @apply mb-2 block text-xs font-semibold uppercase tracking-wider text-charcoal/70;
+  }
+  /* Tarjetas “glow” translúcidas */
+  .glow-card {
+    @apply rounded-3xl border border-cream bg-cream/80 p-6 shadow-[0_8px_30px_rgba(129,29,22,0.08)] backdrop-blur;
   }
 }
 
@@ -66,6 +81,16 @@ body {
   margin-left: 0.15em;
 }
 
+/* Texto chrome / metalizado — brand version (gold + wine + pink) */
+.text-chrome {
+  background: linear-gradient(180deg, #F9F5ED 0%, #F4BABB 50%, #811D16 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 1px 0 rgba(255,255,255,0.4));
+}
+
 /* FAQ details marker */
 details > summary {
   list-style: none;
@@ -76,4 +101,46 @@ details > summary::-webkit-details-marker {
 }
 details[open] .faq-icon {
   transform: rotate(45deg);
+}
+
+/* Pulso suave para stickers */
+@keyframes floaty {
+  0%, 100% { transform: translateY(0) rotate(var(--rot, 0deg)); }
+  50%      { transform: translateY(-6px) rotate(var(--rot, 0deg)); }
+}
+.floaty {
+  animation: floaty 4s ease-in-out infinite;
+}
+
+/* ------- Mariposas brand: aleteo de alas ------- */
+@keyframes butterfly-flap {
+  0%, 100% { transform: scaleX(1); }
+  50%      { transform: scaleX(0.35); }
+}
+.butterfly .wing-left,
+.butterfly .wing-right {
+  transform-origin: 50% 55%;
+  transform-box: fill-box;
+  animation: butterfly-flap var(--flap-duration, 600ms) ease-in-out infinite;
+  animation-delay: var(--flap-delay, 0s);
+  will-change: transform;
+}
+/* opcional: leve desfase entre alas para realismo */
+.butterfly .wing-right {
+  animation-delay: calc(var(--flap-delay, 0s) + 20ms);
+}
+@media (prefers-reduced-motion: reduce) {
+  .butterfly .wing-left,
+  .butterfly .wing-right { animation: none; }
+}
+
+/* Shine animado */
+@keyframes shine {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shine {
+  background: linear-gradient(110deg, #FBE2E3 0%, #F9F5ED 25%, #F4BABB 50%, #F9F5ED 75%, #D6C774 100%);
+  background-size: 200% 100%;
+  animation: shine 6s linear infinite;
 }
