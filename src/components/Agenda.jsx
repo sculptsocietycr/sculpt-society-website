@@ -13,7 +13,7 @@ export default function Agenda() {
             <h2 className="mt-4 display text-4xl text-ink md:text-5xl">
               {agenda.title}
             </h2>
-            <p className="mt-5 text-sm italic text-ink/60">{agenda.note}</p>
+            <p className="mt-5 text-sm italic text-ink/80">{agenda.note}</p>
           </div>
 
           <div className="lg:col-span-8">

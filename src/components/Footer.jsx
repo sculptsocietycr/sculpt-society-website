@@ -21,7 +21,7 @@ export default function Footer() {
                 </span>
               </div>
             </div>
-            <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/65">
+            <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/85">
               {footer.tagline}
             </p>
             <a href={nav.cta.href} className="btn-primary mt-8">
@@ -38,7 +38,7 @@ export default function Footer() {
                 <li key={l.href}>
                   <a
                     href={l.href}
-                    className="text-sm text-white/75 transition-colors hover:text-bubblegum"
+                    className="text-sm text-white/90 transition-colors hover:text-bubblegum"
                   >
                     {l.label}
                   </a>
@@ -51,7 +51,7 @@ export default function Footer() {
             <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.25em] text-lilac">
               Contacto
             </p>
-            <ul className="space-y-3 text-sm text-white/75">
+            <ul className="space-y-3 text-sm text-white/90">
               <li>
                 <a
                   href={brand.instagramUrl}
@@ -80,12 +80,12 @@ export default function Footer() {
                   WhatsApp {brand.whatsapp}
                 </a>
               </li>
-              <li className="text-white/50">{brand.domain}</li>
+              <li className="text-white/85">{brand.domain}</li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col items-start justify-between gap-4 border-t border-white/15 pt-8 text-xs text-white/55 md:flex-row md:items-center">
+        <div className="mt-14 flex flex-col items-start justify-between gap-4 border-t border-white/15 pt-8 text-xs text-white/80 md:flex-row md:items-center">
           <p>{footer.copyright}</p>
           <p className="flex items-center gap-2">
             <span className="text-bubblegum">✦</span>

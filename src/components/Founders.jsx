@@ -42,7 +42,7 @@ export default function Founders() {
           <h2 className="mt-4 display text-4xl text-charcoal md:text-5xl lg:text-6xl">
             {founders.title}
           </h2>
-          <p className="mt-5 text-base leading-relaxed text-charcoal/70 md:text-lg">
+          <p className="mt-5 text-base leading-relaxed text-charcoal/85 md:text-lg">
             {founders.intro}
           </p>
         </div>
@@ -92,11 +92,11 @@ function FounderCard({ founder, delay }) {
         <div
           className="absolute inset-0 hidden flex-col items-center justify-center gap-2 bg-gradient-y2k px-4 text-center"
         >
-          <span className="text-3xl text-wine/60">✦</span>
+          <span className="text-3xl text-wine/80">✦</span>
           <p className="font-display text-2xl font-semibold text-wine">
             {founder.name}
           </p>
-          <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-charcoal/60">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-charcoal/80">
             Foto próximamente
           </p>
         </div>
@@ -117,7 +117,7 @@ function FounderCard({ founder, delay }) {
         <h3 className="mt-2 display text-3xl text-charcoal">
           {founder.name}
         </h3>
-        <p className="mt-3 text-sm leading-relaxed text-charcoal/75">
+        <p className="mt-3 text-sm leading-relaxed text-charcoal/85">
           {founder.bio}
         </p>
       </div>

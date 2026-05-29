@@ -54,7 +54,7 @@ export default function Closing() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.25 }}
-          className="mx-auto mt-7 max-w-xl text-lg text-white/80 md:text-xl"
+          className="mx-auto mt-7 max-w-xl text-lg text-white/90 md:text-xl"
         >
           {closing.subtitle}
         </motion.p>
@@ -69,7 +69,7 @@ export default function Closing() {
           <a href={closing.cta.href} className="btn-light text-base px-9 py-4">
             ✦ {closing.cta.label}
           </a>
-          <p className="text-xs font-medium uppercase tracking-[0.25em] text-white/60">
+          <p className="text-xs font-medium uppercase tracking-[0.25em] text-white/85">
             {closing.micro}
           </p>
         </motion.div>

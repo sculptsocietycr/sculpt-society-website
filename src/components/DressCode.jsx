@@ -28,7 +28,7 @@ export default function DressCode() {
           <h2 className="mt-4 display text-4xl text-ink md:text-5xl lg:text-6xl">
             {dressCode.title}
           </h2>
-          <p className="mt-5 text-base leading-relaxed text-ink/75 md:text-lg">
+          <p className="mt-5 text-base leading-relaxed text-ink/85 md:text-lg">
             {dressCode.intro}
           </p>
         </div>
@@ -51,7 +51,7 @@ export default function DressCode() {
           <StyleCard card={miley} variant="miley" delay={0.1} />
         </div>
 
-        <p className="mx-auto mt-12 max-w-xl text-center text-sm italic leading-relaxed text-ink/70">
+        <p className="mx-auto mt-12 max-w-xl text-center text-sm italic leading-relaxed text-ink/85">
           {dressCode.note}
         </p>
       </div>
@@ -74,7 +74,7 @@ function StyleCard({ card, variant, delay }) {
     >
       {/* Ribbon header */}
       <div className={`absolute inset-x-0 top-0 h-2 ${ribbonBg}`} />
-      <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-violet/70">
+      <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-violet/90">
         {isHannah ? 'Hannah · sweet girl' : 'Miley · bold girl'}
       </p>
       <h3 className="mt-2 display text-3xl text-ink md:text-4xl">

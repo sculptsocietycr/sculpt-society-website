@@ -17,7 +17,7 @@ export default function Concept() {
           <h2 className="mt-4 display text-4xl text-ink md:text-5xl lg:text-6xl">
             {concept.title}
           </h2>
-          <p className="mt-5 text-base leading-relaxed text-ink/70 md:text-lg">
+          <p className="mt-5 text-base leading-relaxed text-ink/85 md:text-lg">
             {concept.intro}
           </p>
         </div>
@@ -47,7 +47,7 @@ export default function Concept() {
         </div>
 
         {/* Closing line */}
-        <p className="mx-auto mt-12 max-w-2xl text-center text-base italic leading-relaxed text-ink/70 md:text-lg">
+        <p className="mx-auto mt-12 max-w-2xl text-center text-base italic leading-relaxed text-ink/85 md:text-lg">
           {concept.closing}
         </p>
       </div>
@@ -72,10 +72,10 @@ function SideCard({ side, variant, delay }) {
       {/* Inner card */}
       <div className={`relative rounded-[1.7rem] ${accent} p-7 md:p-9`}>
         <div className="flex items-center justify-between">
-          <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-violet/70">
+          <span className="text-[10px] font-semibold uppercase tracking-[0.3em] text-violet/90">
             {numberLabel}
           </span>
-          <span className="text-2xl text-violet/60">{isHannah ? '♡' : '★'}</span>
+          <span className="text-2xl text-violet/80">{isHannah ? '♡' : '★'}</span>
         </div>
 
         <h3 className="mt-4 display text-5xl text-ink md:text-6xl">
@@ -85,7 +85,7 @@ function SideCard({ side, variant, delay }) {
           {side.tagline}
         </p>
 
-        <p className="mt-5 text-base leading-relaxed text-ink/75">
+        <p className="mt-5 text-base leading-relaxed text-ink/85">
           {side.vibe}
         </p>
 

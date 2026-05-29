@@ -25,7 +25,7 @@ export default function Details() {
             className="relative overflow-hidden rounded-[2rem] bg-gradient-y2k p-1 shadow-xl lg:col-span-5"
           >
             <div className="rounded-[1.7rem] bg-white p-7 md:p-9">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-violet/70">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-violet/90">
                 Sculpt Society
               </p>
               <h3 className="mt-2 display text-3xl text-ink md:text-4xl">
@@ -40,7 +40,7 @@ export default function Details() {
                     key={row.label}
                     className="flex items-baseline justify-between gap-4 py-3.5"
                   >
-                    <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-violet/70">
+                    <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-violet/90">
                       {row.label}
                     </span>
                     <span className="text-right text-sm font-semibold text-ink md:text-base">

@@ -16,7 +16,7 @@ export default function FAQ() {
                 {faq.title}
               </span>
             </h2>
-            <p className="mt-5 text-sm leading-relaxed text-ink/65">
+            <p className="mt-5 text-sm leading-relaxed text-ink/80">
               ¿Te quedó alguna duda? Escribinos por WhatsApp y te respondemos al toque.
             </p>
           </div>
@@ -40,7 +40,7 @@ export default function FAQ() {
                       +
                     </span>
                   </summary>
-                  <div className="mt-3 max-w-3xl text-sm leading-relaxed text-ink/70 md:text-base">
+                  <div className="mt-3 max-w-3xl text-sm leading-relaxed text-ink/85 md:text-base">
                     {item.a}
                   </div>
                 </motion.details>

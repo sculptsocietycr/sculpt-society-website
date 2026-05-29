@@ -60,7 +60,7 @@ export default function Hero() {
             className="mt-5 inline-flex items-center gap-3"
           >
             <span className="chip-hannah">Hannah</span>
-            <span className="font-display text-xl italic text-ink/60">vs</span>
+            <span className="font-display text-xl italic text-ink/80">vs</span>
             <span className="chip-miley">Miley</span>
           </motion.div>
 
@@ -81,7 +81,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="mx-auto mt-7 max-w-2xl text-base leading-relaxed text-ink/75 md:text-lg"
+            className="mx-auto mt-7 max-w-2xl text-base leading-relaxed text-ink/85 md:text-lg"
           >
             {hero.subtitle}
           </motion.p>
@@ -141,7 +141,7 @@ export default function Hero() {
 function Info({ label, value }) {
   return (
     <div className="px-2 text-center">
-      <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-violet/70">
+      <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-violet/90">
         {label}
       </p>
       <p className="mt-1 text-sm font-semibold text-ink md:text-base">{value}</p>

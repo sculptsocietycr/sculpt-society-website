@@ -60,7 +60,7 @@ body {
     @apply w-full rounded-2xl border border-wine/15 bg-cream px-5 py-3.5 text-sm text-charcoal placeholder:text-charcoal/40 transition-colors focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20;
   }
   .label-base {
-    @apply mb-2 block text-xs font-semibold uppercase tracking-wider text-charcoal/70;
+    @apply mb-2 block text-xs font-semibold uppercase tracking-wider text-charcoal/85;
   }
   /* Tarjetas “glow” translúcidas */
   .glow-card {

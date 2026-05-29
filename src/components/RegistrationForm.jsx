@@ -83,7 +83,7 @@ export default function RegistrationForm() {
             <h2 className="mt-4 display text-4xl text-ink md:text-5xl">
               {form.title}
             </h2>
-            <p className="mt-5 text-base leading-relaxed text-ink/75 md:text-lg">
+            <p className="mt-5 text-base leading-relaxed text-ink/85 md:text-lg">
               {form.subtitle}
             </p>
 
@@ -95,8 +95,8 @@ export default function RegistrationForm() {
                 {form.payment.method}
               </p>
               <p className="mt-1 text-base text-ink">{form.payment.number}</p>
-              <p className="text-sm text-ink/60">A nombre de {form.payment.name}</p>
-              <p className="mt-4 border-t border-violet/10 pt-4 text-sm leading-relaxed text-ink/70">
+              <p className="text-sm text-ink/80">A nombre de {form.payment.name}</p>
+              <p className="mt-4 border-t border-violet/10 pt-4 text-sm leading-relaxed text-ink/85">
                 {form.payment.note}
               </p>
             </div>
@@ -126,7 +126,7 @@ export default function RegistrationForm() {
                     <span className="text-3xl">✦</span>
                   </div>
                   <h3 className="display text-3xl text-ink">¡Listo, pop star!</h3>
-                  <p className="mt-4 max-w-md text-base text-ink/75">
+                  <p className="mt-4 max-w-md text-base text-ink/85">
                     {form.successMessage}
                   </p>
                   <button
@@ -218,7 +218,7 @@ export default function RegistrationForm() {
                   {/* Energía Hannah / Miley */}
                   <div>
                     <label className="label-base">{form.energy.label}</label>
-                    <p className="mb-3 text-xs leading-relaxed text-ink/60">
+                    <p className="mb-3 text-xs leading-relaxed text-ink/80">
                       {form.energy.intro}
                     </p>
                     <div className="grid gap-2 sm:grid-cols-2">
@@ -245,7 +245,7 @@ export default function RegistrationForm() {
                     <label htmlFor="brunch" className="label-base">
                       Elegí tu brunch *
                     </label>
-                    <p className="mb-3 text-xs leading-relaxed text-ink/60">
+                    <p className="mb-3 text-xs leading-relaxed text-ink/80">
                       {form.brunchIntro}
                     </p>
                     <div className="space-y-3">
@@ -270,7 +270,7 @@ export default function RegistrationForm() {
                                 {opt.tagline}
                               </span>
                             </span>
-                            <span className="mt-1 block text-sm leading-relaxed text-ink/75">
+                            <span className="mt-1 block text-sm leading-relaxed text-ink/85">
                               {opt.description}
                             </span>
                           </span>
@@ -333,7 +333,7 @@ export default function RegistrationForm() {
                     {status === 'submitting' ? 'Enviando…' : '✦ Apartar mi spot'}
                   </button>
 
-                  <p className="text-center text-xs text-ink/50">
+                  <p className="text-center text-xs text-ink/80">
                     Al enviar este formulario aceptás que te contactemos por WhatsApp para confirmar tu cupo.
                   </p>
                 </form>

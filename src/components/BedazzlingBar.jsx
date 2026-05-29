@@ -50,7 +50,7 @@ export default function BedazzlingBar() {
             <p className="mt-6 text-xl leading-relaxed text-ink md:text-2xl">
               “{bedazzlingBar.description}”
             </p>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-ink/75">
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-ink/85">
               {bedazzlingBar.body}
             </p>
 
