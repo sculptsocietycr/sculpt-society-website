@@ -135,8 +135,8 @@ export const founders = {
     {
       key: 'diana',
       name: 'Diana',
-      role: 'Instructora · Yoga Sculpt',
-      bio: 'Te guía la clase. Energía cálida, secuencias para todos los niveles y la calma justa para empezar la mañana en tu eje.',
+      role: 'Logística · Instructora de Yoga Sculpt',
+      bio: 'El cerebro detrás de que todo fluya — agenda, espacios, brunch, sorpresas — y además te guía la clase. Energía cálida, secuencias para todos los niveles.',
       image: '/founders/diana.jpg',
       vibe: 'hannah',
       sticker: '✦',
@@ -144,8 +144,8 @@ export const founders = {
     {
       key: 'karina',
       name: 'Karina',
-      role: 'Logística · Producción',
-      bio: 'El cerebro detrás de que todo fluya — agenda, espacios, brunch, sorpresas. Si algo sale lindo, fue ella.',
+      role: 'Patrocinios · Alianzas',
+      bio: 'La que hace que las marcas que amamos sean parte del evento. Si ves un detalle bonito de una marca aliada, fue ella.',
       image: '/founders/karina.jpg',
       vibe: 'miley',
       sticker: '♡',
@@ -194,7 +194,7 @@ export const experience = {
     {
       icon: '☼',
       title: 'Música y mood',
-      description: 'Playlist 2000s pop nostalgia: Hannah, Miley, Britney, Avril, Disney soundtracks y guilty pleasures.',
+      description: 'Playlist Y2K nostalgia: Hannah, Miley y los pop hits de los 2000s que sabés cantar de memoria.',
     },
     {
       icon: '✦',
