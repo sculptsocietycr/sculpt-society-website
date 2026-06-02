@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
 import { brand, logos, nav } from '../data/content';
+import { useEventStatus } from '../data/eventStatus.jsx';
 
 export default function Header() {
+  const { soldOut } = useEventStatus();
+  const ctaLabel = soldOut ? 'Sold out' : nav.cta.label;
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -57,7 +60,7 @@ export default function Header() {
 
         <div className="flex items-center gap-3">
           <a href={nav.cta.href} className="btn-primary hidden text-xs sm:inline-flex">
-            ✦ {nav.cta.label}
+            ✦ {ctaLabel}
           </a>
           <button
             className="flex h-10 w-10 items-center justify-center rounded-full border border-violet/20 lg:hidden"
@@ -104,7 +107,7 @@ export default function Header() {
             onClick={() => setOpen(false)}
             className="btn-primary mt-8 w-full"
           >
-            ✦ {nav.cta.label}
+            ✦ {ctaLabel}
           </a>
         </nav>
       </div>

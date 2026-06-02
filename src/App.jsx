@@ -13,10 +13,11 @@ import FAQ from './components/FAQ.jsx';
 import Closing from './components/Closing.jsx';
 import Footer from './components/Footer.jsx';
 import WhatsAppFloat from './components/WhatsAppFloat.jsx';
+import { EventStatusProvider } from './data/eventStatus.jsx';
 
 export default function App() {
   return (
-    <>
+    <EventStatusProvider>
       <Header />
       <main>
         <Hero />
@@ -34,6 +35,6 @@ export default function App() {
       </main>
       <Footer />
       <WhatsAppFloat />
-    </>
+    </EventStatusProvider>
   );
 }

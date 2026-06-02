@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion';
 import { details, nextEvent } from '../data/content';
+import { useEventStatus } from '../data/eventStatus.jsx';
 
 export default function Details() {
+  const { soldOut } = useEventStatus();
   return (
     <section id="detalles" className="relative overflow-hidden bg-offwhite section-pad">
       <div className="pointer-events-none absolute -left-20 top-20 h-72 w-72 rounded-full bg-lilac/30 blur-3xl" />
@@ -51,7 +53,7 @@ export default function Details() {
               </div>
 
               <a href="#inscripcion" className="btn-primary mt-7 w-full">
-                ✦ Reservar mi spot
+                ✦ {soldOut ? 'Sold out — lista de espera' : 'Reservar mi spot'}
               </a>
             </div>
 

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { hero, nextEvent } from '../data/content';
 import Butterfly from './Butterfly.jsx';
+import { useEventStatus } from '../data/eventStatus.jsx';
 
 const Sticker = ({ children, className = '', rot = 0, delay = 0 }) => (
   <span
@@ -12,6 +13,7 @@ const Sticker = ({ children, className = '', rot = 0, delay = 0 }) => (
 );
 
 export default function Hero() {
+  const { soldOut } = useEventStatus();
   return (
     <section
       id="evento"
@@ -93,8 +95,12 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4"
           >
-            <a href={hero.ctaPrimary.href} className="btn-primary w-full sm:w-auto">
-              ✦ {hero.ctaPrimary.label}
+            <a
+              href="#inscripcion"
+              className="btn-primary w-full sm:w-auto"
+              aria-label={soldOut ? 'Cupos agotados — ver lista de espera' : hero.ctaPrimary.label}
+            >
+              {soldOut ? '✦ Sold out — lista de espera' : `✦ ${hero.ctaPrimary.label}`}
             </a>
             <a href={hero.ctaSecondary.href} className="btn-secondary w-full sm:w-auto">
               {hero.ctaSecondary.label}

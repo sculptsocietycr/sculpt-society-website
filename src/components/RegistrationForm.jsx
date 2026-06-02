@@ -2,8 +2,10 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { form, nextEvent } from '../data/content';
 import Butterfly from './Butterfly.jsx';
+import { useEventStatus } from '../data/eventStatus.jsx';
 
 export default function RegistrationForm() {
+  const eventStatus = useEventStatus();
   const [status, setStatus] = useState('idle'); // idle | submitting | success | error
   const [errorMsg, setErrorMsg] = useState('');
 
@@ -13,29 +15,43 @@ export default function RegistrationForm() {
     setErrorMsg('');
 
     const formData = new FormData(e.target);
-
-    // En paralelo: (1) Formspree para email a las fundadoras,
-    // (2) hub privado (Vercel) para tracking interno.
     const hubPayload = Object.fromEntries(formData.entries());
 
-    const formspreePromise = fetch(form.endpoint, {
-      method: 'POST',
-      body: formData,
-      headers: { Accept: 'application/json' },
-    });
-
-    // No bloqueamos el éxito del usuario si el hub falla por algún motivo —
-    // Formspree es el canal autoritativo para confirmar la inscripción.
-    const hubPromise = fetch('/api/inscripciones/webhook', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(hubPayload),
-    }).catch(() => null);
-
+    // Postear PRIMERO al hub para verificar el cap del lado server.
+    // Si responde 409 (sold_out), no posteamos a Formspree para no
+    // mandar emails de inscripciones rechazadas.
+    let hubRes;
     try {
-      const [res] = await Promise.all([formspreePromise, hubPromise]);
+      hubRes = await fetch('/api/inscripciones/webhook', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(hubPayload),
+      });
+    } catch {
+      hubRes = null;
+    }
 
-      if (res.ok) {
+    if (hubRes && hubRes.status === 409) {
+      // Cupo lleno justo mientras llenaba el form. Refrescamos el
+      // contexto para que el resto de la página también lo refleje.
+      eventStatus.refresh?.();
+      setStatus('error');
+      setErrorMsg(
+        'Los cupos para esta edición ya están llenos. Escribinos por WhatsApp para sumarte a la lista de espera.'
+      );
+      return;
+    }
+
+    // El hub aceptó (201) o falló por motivos no-cupo (ej. Redis caído).
+    // En ambos casos seguimos con Formspree para no perder la inscripción.
+    try {
+      const formspreeRes = await fetch(form.endpoint, {
+        method: 'POST',
+        body: formData,
+        headers: { Accept: 'application/json' },
+      });
+
+      if (formspreeRes.ok) {
         setStatus('success');
         e.target.reset();
         if (typeof window !== 'undefined' && window.gtag) {
@@ -44,8 +60,10 @@ export default function RegistrationForm() {
             event_label: 'Hannah vs Miley Edition',
           });
         }
+        // Refrescamos el contador global por si la página queda abierta.
+        eventStatus.refresh?.();
       } else {
-        const data = await res.json().catch(() => ({}));
+        const data = await formspreeRes.json().catch(() => ({}));
         setErrorMsg(data?.errors?.[0]?.message || form.errorMessage);
         setStatus('error');
       }
@@ -54,6 +72,11 @@ export default function RegistrationForm() {
       setStatus('error');
     }
   };
+
+  // Render del panel SOLD OUT: reemplaza el form cuando el evento está lleno.
+  if (eventStatus.soldOut) {
+    return <SoldOutPanel />;
+  }
 
   return (
     <section
@@ -341,6 +364,95 @@ export default function RegistrationForm() {
             </div>
           </motion.div>
         </div>
+      </div>
+    </section>
+  );
+}
+
+// Panel que reemplaza el formulario cuando los cupos están llenos.
+// Mantiene el id #inscripcion para que los anchors del Hero/Header/Details
+// sigan funcionando (la persona aterriza acá y entiende qué pasó).
+function SoldOutPanel() {
+  const waitlistHref =
+    'https://wa.me/' +
+    '50670101783' +
+    '?text=Hola%2C%20quiero%20entrar%20a%20la%20lista%20de%20espera%20de%20Sculpt%20Society%20%E2%80%94%20Hannah%20vs%20Miley%20Edition';
+
+  return (
+    <section
+      id="inscripcion"
+      className="relative overflow-hidden bg-gradient-y2k section-pad"
+    >
+      <Butterfly
+        color="#E7552C"
+        size={42}
+        className="right-6 top-10 md:right-16 md:top-14"
+        rotate={12}
+        driftX={-50}
+        driftY={-100}
+        spin={-18}
+        flapMs={560}
+      />
+      <Butterfly
+        color="#F4BABB"
+        size={34}
+        className="left-8 bottom-12 hidden md:block"
+        rotate={-10}
+        driftX={50}
+        driftY={-120}
+        spin={20}
+        flapMs={620}
+        delay={0.3}
+        flip
+      />
+
+      <div className="container-site relative">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6 }}
+          className="mx-auto max-w-xl rounded-3xl bg-white p-8 text-center shadow-xl md:p-12"
+        >
+          <span className="inline-flex items-center gap-2 rounded-full bg-gradient-y2k px-4 py-1.5 text-[10px] font-semibold uppercase tracking-[0.3em] text-wine shadow-sm">
+            ✦ Cupos agotados ✦
+          </span>
+
+          <h2 className="mt-6 display text-5xl text-ink md:text-6xl">
+            <span className="bg-gradient-to-r from-orange to-wine bg-clip-text text-transparent italic">
+              Sold out.
+            </span>
+          </h2>
+
+          <p className="mt-5 text-base leading-relaxed text-ink/85 md:text-lg">
+            Las 24 entradas para la Hannah vs Miley Edition se vendieron.
+            Si querés sumarte a la lista de espera (por si alguien libera
+            su cupo), escribinos por WhatsApp y te avisamos primera.
+          </p>
+
+          <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+            <a
+              href={waitlistHref}
+              target="_blank"
+              rel="noreferrer"
+              className="btn-primary"
+            >
+              ✦ Sumarme a la lista de espera
+            </a>
+            <a
+              href="https://instagram.com/sculptsocietycr"
+              target="_blank"
+              rel="noreferrer"
+              className="btn-secondary"
+            >
+              Seguir en Instagram
+            </a>
+          </div>
+
+          <p className="mt-6 text-xs text-ink/70">
+            La próxima edición se anuncia primero por nuestro Instagram.
+          </p>
+        </motion.div>
       </div>
     </section>
   );

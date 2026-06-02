@@ -9,7 +9,8 @@
 // pero opcionalmente valida un secret si está configurado.
 
 import { handleOptions } from '../_lib/auth.js';
-import { createItem } from '../_lib/store.js';
+import { createItem, getList } from '../_lib/store.js';
+import { getCapacity } from '../_lib/capacity.js';
 
 export default async function handler(req, res) {
   if (handleOptions(req, res)) return;
@@ -52,8 +53,28 @@ export default async function handler(req, res) {
   }
 
   try {
+    // Enforcement del cap: rechazar si ya hay >= capacity.
+    // Esto es lo que evita que dos formularios simultáneos pasen
+    // el chequeo del cliente y excedan el cupo.
+    const capacity = getCapacity();
+    const list = await getList('inscripciones');
+    const count = Array.isArray(list) ? list.length : 0;
+    if (count >= capacity) {
+      return res.status(409).json({
+        error: 'sold_out',
+        message: 'Lo sentimos — los cupos para esta edición ya están llenos.',
+        count,
+        capacity,
+      });
+    }
+
     const created = await createItem('inscripciones', item);
-    return res.status(201).json({ ok: true, id: created.id });
+    return res.status(201).json({
+      ok: true,
+      id: created.id,
+      count: count + 1,
+      capacity,
+    });
   } catch (err) {
     return res
       .status(500)

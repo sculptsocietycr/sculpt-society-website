@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion';
 import { closing } from '../data/content';
 import Butterfly from './Butterfly.jsx';
+import { useEventStatus } from '../data/eventStatus.jsx';
 
 export default function Closing() {
+  const { soldOut } = useEventStatus();
   return (
     <section className="relative overflow-hidden bg-wine text-cream">
       {/* Y2K background glow */}
@@ -67,7 +69,7 @@ export default function Closing() {
           className="mt-10 flex flex-col items-center gap-4"
         >
           <a href={closing.cta.href} className="btn-light text-base px-9 py-4">
-            ✦ {closing.cta.label}
+            ✦ {soldOut ? 'Sold out — lista de espera' : closing.cta.label}
           </a>
           <p className="text-xs font-medium uppercase tracking-[0.25em] text-white/85">
             {closing.micro}
