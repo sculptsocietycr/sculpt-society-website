@@ -373,6 +373,7 @@ export default function RegistrationForm() {
 // Mantiene el id #inscripcion para que los anchors del Hero/Header/Details
 // sigan funcionando (la persona aterriza acá y entiende qué pasó).
 function SoldOutPanel() {
+  const { capacity } = useEventStatus();
   const waitlistHref =
     'https://wa.me/' +
     '50670101783' +
@@ -425,9 +426,10 @@ function SoldOutPanel() {
           </h2>
 
           <p className="mt-5 text-base leading-relaxed text-ink/85 md:text-lg">
-            Las 24 entradas para la Hannah vs Miley Edition se vendieron.
-            Si querés sumarte a la lista de espera (por si alguien libera
-            su cupo), escribinos por WhatsApp y te avisamos primera.
+            Las {capacity} entradas para la Hannah vs Miley Edition se
+            vendieron. Si querés sumarte a la lista de espera (por si
+            alguien libera su cupo), escribinos por WhatsApp y te
+            avisamos primera.
           </p>
 
           <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">

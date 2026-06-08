@@ -16,7 +16,7 @@ import {
   useCallback,
 } from 'react';
 
-const DEFAULT_CAPACITY = 24;
+const DEFAULT_CAPACITY = 26;
 
 const EventStatusContext = createContext({
   loading: true,

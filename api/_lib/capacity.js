@@ -5,7 +5,7 @@
 // El frontend lo recibe vía /api/inscripciones/status — NUNCA confía
 // en una constante del cliente para el cap real.
 
-export const DEFAULT_CAPACITY = 24;
+export const DEFAULT_CAPACITY = 26;
 
 export function getCapacity() {
   const raw = process.env.EVENT_CAPACITY;
