@@ -78,6 +78,7 @@ export default function App() {
 
   const handleFinishScratch = useCallback(() => {
     saveLocalState({ participant, finished: true });
+    setScreen('result');
     setResultOpen(true);
   }, [participant]);
 
