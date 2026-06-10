@@ -90,9 +90,14 @@ function LoserBody() {
       <p className="mt-4 text-base leading-relaxed text-charcoal/80">
         {COPY.loser.body}
       </p>
-      <p className="mt-5 text-xs uppercase tracking-wider2 text-charcoal/65">
+      <a
+        href="https://www.instagram.com/sculptsocietycr"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-5 block text-xs uppercase tracking-wider2 text-wine underline underline-offset-2"
+      >
         {COPY.loser.sign}
-      </p>
+      </a>
     </div>
   );
 }
