@@ -59,6 +59,7 @@ export async function adminResetGame(password) {
   return jsonFetch('/reset-game', {
     method: 'POST',
     headers: adminHeaders(password),
+    body: JSON.stringify({ confirm: 'SI' }),
   });
 }
 
