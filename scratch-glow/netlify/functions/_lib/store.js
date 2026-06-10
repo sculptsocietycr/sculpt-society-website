@@ -23,9 +23,9 @@ function store() {
 
 export async function readState() {
   const s = store();
-  const { data, etag } = await s.getWithMetadata(GAME_STATE_KEY, {
-    type: 'json',
-  });
+  const result = await s.getWithMetadata(GAME_STATE_KEY, { type: 'json' });
+  if (!result) return { state: null, etag: null };
+  const { data, etag } = result;
   return { state: data, etag };
 }
 
