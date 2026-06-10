@@ -1,0 +1,23 @@
+# Netlify build + dev config para Scratch & Glow.
+
+[build]
+  # Cuando Netlify clona el repo de Sculpt Society, este sub-proyecto se
+  # builda desde scratch-glow/. Hay que configurar el "Base directory" en
+  # la UI de Netlify a `scratch-glow` para que esto funcione (ver README).
+  command = "npm run build"
+  publish = "dist"
+  functions = "netlify/functions"
+
+[dev]
+  framework = "vite"
+  command = "npm run dev:frontend"
+  targetPort = 5174
+  port = 8888
+  functionsPort = 9999
+
+# SPA: cualquier ruta sin archivo apunta a index.html para que React Router-y
+# /admin funcione sin un 404.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

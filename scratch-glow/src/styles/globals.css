@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =====================================================
+   Base — fondo liso cream, mismo que la landing principal
+   ===================================================== */
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: 'Poppins', system-ui, sans-serif;
+  color: #373330;
+  background-color: #F9F5ED;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100dvh;
+  overscroll-behavior: none;
+}
+
+::selection {
+  background-color: #E7552C;
+  color: #F9F5ED;
+}
+
+/* =====================================================
+   Componentes brand — mismos estilos que sculptsocietycr.com
+   ===================================================== */
+@layer components {
+  /* CTA principal — gradient orange→wine (idéntico a la landing) */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full
+           bg-gradient-to-r from-orange to-wine px-7 py-3.5
+           text-sm font-semibold tracking-wide text-cream
+           shadow-md shadow-wine/25 transition-all duration-300
+           hover:shadow-lg hover:shadow-orange/30 hover:brightness-[1.05]
+           active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  /* CTA secundario */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full
+           border border-wine/40 bg-cream/60 px-7 py-3.5
+           text-sm font-medium tracking-wide text-wine backdrop-blur
+           transition-all duration-300 hover:border-wine hover:bg-wine
+           hover:text-cream active:scale-[0.98];
+  }
+
+  /* CTA sobre fondos oscuros */
+  .btn-light {
+    @apply inline-flex items-center justify-center gap-2 rounded-full
+           bg-cream px-7 py-3.5 text-sm font-semibold tracking-wide text-wine
+           shadow-md transition-all duration-300 hover:bg-pink active:scale-[0.98];
+  }
+
+  /* Eyebrow / label */
+  .eyebrow {
+    @apply text-[11px] font-semibold uppercase tracking-wider3 text-orange;
+  }
+
+  /* Título display — Fraunces serif */
+  .display {
+    @apply font-display font-semibold leading-[1.02] tracking-tightest;
+  }
+
+  /* Inputs */
+  .input-base {
+    @apply w-full rounded-2xl border border-wine/15 bg-cream px-5 py-3.5
+           text-base text-charcoal placeholder:text-charcoal/40 transition-colors
+           focus:border-orange focus:outline-none focus:ring-2 focus:ring-orange/20;
+  }
+
+  .label-base {
+    @apply mb-2 block text-xs font-semibold uppercase tracking-wide text-charcoal/80;
+  }
+
+  /* Container mobile-first */
+  .screen {
+    @apply mx-auto w-full max-w-site px-5 py-8;
+  }
+
+  /* Tarjeta blanca limpia */
+  .card {
+    @apply rounded-3xl bg-white shadow-card border border-pink/20;
+  }
+}
+
+/* =====================================================
+   Mariposas brand: aleteo de alas (idéntico a la landing)
+   ===================================================== */
+@keyframes butterfly-flap {
+  0%, 100% { transform: scaleX(1); }
+  50%      { transform: scaleX(0.35); }
+}
+.butterfly .wing-left,
+.butterfly .wing-right {
+  transform-origin: 50% 55%;
+  transform-box: fill-box;
+  animation: butterfly-flap var(--flap-duration, 600ms) ease-in-out infinite;
+  animation-delay: var(--flap-delay, 0s);
+  will-change: transform;
+}
+.butterfly .wing-right {
+  animation-delay: calc(var(--flap-delay, 0s) + 20ms);
+}
+@media (prefers-reduced-motion: reduce) {
+  .butterfly .wing-left,
+  .butterfly .wing-right { animation: none; }
+}
+
+/* Floaty animation para stickers/sparkles sutiles */
+@keyframes floaty {
+  0%, 100% { transform: translateY(0) rotate(var(--rot, 0deg)); }
+  50%      { transform: translateY(-5px) rotate(var(--rot, 0deg)); }
+}
+.floaty { animation: floaty 4s ease-in-out infinite; }
+
+/* Rise-in para entradas */
+@keyframes rise-in {
+  0%   { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.rise-in { animation: rise-in 500ms ease-out forwards; }
+
+/* Glow pulse para casilla ganadora */
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 0 0 rgba(231, 85, 44, 0.5),
+      0 8px 30px rgba(129, 29, 22, 0.18);
+  }
+  50% {
+    box-shadow:
+      0 0 0 12px rgba(231, 85, 44, 0),
+      0 8px 35px rgba(129, 29, 22, 0.25);
+  }
+}
+.glow-pulse { animation: glow-pulse 1.8s ease-in-out infinite; }
+
+/* Touch optimization para scratch canvas */
+.scratch-canvas {
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: grab;
+}
+.scratch-canvas:active { cursor: grabbing; }
