@@ -60,8 +60,8 @@ export const COPY = {
 
   loser: {
     title: 'Not this time',
-    body: 'Pero igual tenés main character energy.',
-    sign: 'Gracias por ser parte de Sculpt Society.',
+    body: 'Gracias por participar. No olvides seguirnos en redes sociales.',
+    sign: '@sculptsocietycr',
     cta: 'Gracias por jugar',
   },
 };
