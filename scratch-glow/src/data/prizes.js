@@ -38,7 +38,7 @@ export const PRIZES = [
     id: 'dental-clinique-limpieza',
     sponsor: 'Dental Clinique',
     logo: '/logos/dental-clinique.jpg',
-    prize: 'Ganaste limpieza + blanqueamiento',
+    prize: 'Ganaste un blanqueamiento',
     message: 'sonrisa lista para brillar',
   },
   {
